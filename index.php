@@ -24,7 +24,7 @@ error_reporting(E_ALL ^ E_NOTICE);
 //
 // variables
 $eu = '';
-$__ = array('q', 'm', 'f', 's', 'p', 'ie', 'oe', 'syn', 'xml', 'i');
+$__ = array('q', 'm', 'f', 's', 'p', 'ie', 'oe', 'syn', 'xml', 'i', 'search_type');
 foreach ($__ as $_) {
 	$$_ = isset($_GET[$_]) ? $_GET[$_] : '';
 }
@@ -71,103 +71,124 @@ $docs = $related = $corrected = $hot = array();
 $error = $pager = '';
 $total_begin = microtime(true);
 
-// perform the search
-try {
-	$xs = new XS('books');
-	$search = $xs->search;
-	$search->setCharset('UTF-8');
+if($search_type == 'online') {
+	try {
+		$redis = new Redis();  
+		$ret = $redis->connect("localhost", "6379");  //php客户端设置的ip及端口
+		$redis->auth('dc0623');
+		$redis->select(2);
 
-	if (empty($q)) {
-		// just show hot query
-		$hot = $search->getHotQuery(20, 'currnum');
-	} else {
-		// fuzzy search
-		$search->setFuzzy($m === 'yes');
+		if (empty($q) || !$ret) {
+			throw_exception('请输入搜索关键词');
+		}
+		else {
+			$redis->lPush('BOOK_SEARCH_QUEUE', $q);
+		}
+	}
+	catch (XSException $e) {
+		$error = strval($e);
+		die($error);
+	}
+}
+else {
+	// perform the search
+	try {
+		$xs = new XS('books');
+		$search = $xs->search;
+		$search->setCharset('UTF-8');
 
-		// synonym search
-		$search->setAutoSynonyms($syn === 'yes');
-
-		// set query
-		if (!empty($f) && $f != '_all') {
-			$search->setQuery($f . ':(' . $q . ')');
+		if (empty($q)) {
+			// just show hot query
+			$hot = $search->getHotQuery(20, 'currnum');
 		} else {
-			$search->setQuery($q);
-		}
+			// fuzzy search
+			$search->setFuzzy($m === 'yes');
 
-		// set sort
-		if (($pos = strrpos($s, '_')) !== false) {
-			$sf = substr($s, 0, $pos);
-			$st = substr($s, $pos + 1);
-			$search->setSort($sf, $st === 'ASC');
-		}
+			// synonym search
+			$search->setAutoSynonyms($syn === 'yes');
 
-		// set offset, limit
-		$p = max(1, intval($p));
-		$n = XSSearch::PAGE_SIZE;
-		$search->setLimit($n, ($p - 1) * $n);
-
-		// get the result
-		$search_begin = microtime(true);
-		$docs = $search->search();
-		$search_cost = microtime(true) - $search_begin;
-
-		// get other result
-		$count = $search->getLastCount();
-		$total = $search->getDbTotal();
-
-		if ($xml !== 'yes') {
-			// try to corrected, if resul too few
-			if ($count < 1 || $count < ceil(0.001 * $total)) {
-				$corrected = $search->getCorrectedQuery();
+			// set query
+			if (!empty($f) && $f != '_all') {
+				$search->setQuery($f . ':(' . $q . ')');
+			} else {
+				$search->setQuery($q);
 			}
-			// get related query
-			$related = $search->getRelatedQuery();
+
+			// set sort
+			if (($pos = strrpos($s, '_')) !== false) {
+				$sf = substr($s, 0, $pos);
+				$st = substr($s, $pos + 1);
+				$search->setSort($sf, $st === 'ASC');
+			}
+
+			// set offset, limit
+			$p = max(1, intval($p));
+			$n = XSSearch::PAGE_SIZE;
+			$search->setLimit($n, ($p - 1) * $n);
+
+			// get the result
+			$search_begin = microtime(true);
+			$docs = $search->search();
+			$search_cost = microtime(true) - $search_begin;
+
+			// get other result
+			$count = $search->getLastCount();
+			$total = $search->getDbTotal();
+
+			if ($xml !== 'yes') {
+				// try to corrected, if resul too few
+				if ($count < 1 || $count < ceil(0.001 * $total)) {
+					$corrected = $search->getCorrectedQuery();
+				}
+				// get related query
+				$related = $search->getRelatedQuery();
+			}
+
+			// gen pager
+			if ($count > $n) {
+				$pb = max($p - 5, 1);
+				$pe = min($pb + 10, ceil($count / $n) + 1);
+				$pager = '';
+				do {
+					$pager .= ($pb == $p) ? '<li class="disabled"><a>' . $p . '</a></li>' : '<li><a href="' . $bu . '&p=' . $pb . '">' . $pb . '</a></li>';
+				} while (++$pb < $pe);
+			}
 		}
+	} catch (XSException $e) {
+		$error = strval($e);
+	}
 
-		// gen pager
-		if ($count > $n) {
-			$pb = max($p - 5, 1);
-			$pe = min($pb + 10, ceil($count / $n) + 1);
-			$pager = '';
-			do {
-				$pager .= ($pb == $p) ? '<li class="disabled"><a>' . $p . '</a></li>' : '<li><a href="' . $bu . '&p=' . $pb . '">' . $pb . '</a></li>';
-			} while (++$pb < $pe);
+	// calculate total time cost
+	$total_cost = microtime(true) - $total_begin;
+
+	// XML OUPUT
+	if ($xml === 'yes' && !empty($q)) {
+		header("Content-Type: text/xml; charset=$oe");
+		echo "<?xml version=\"1.0\" encoding=\"$oe\" ?>\n";
+		echo "<xs:result count=\"$count\" total=\"$total\" cost=\"$total_cost\" xmlns:xs=\"http://www.gouyg.com\">\n";
+		if ($error !== '') {
+			echo "  <error><![CDATA[" . $error . "]]></error>\n";
 		}
-	}
-} catch (XSException $e) {
-	$error = strval($e);
-}
-
-// calculate total time cost
-$total_cost = microtime(true) - $total_begin;
-
-// XML OUPUT
-if ($xml === 'yes' && !empty($q)) {
-	header("Content-Type: text/xml; charset=$oe");
-	echo "<?xml version=\"1.0\" encoding=\"$oe\" ?>\n";
-	echo "<xs:result count=\"$count\" total=\"$total\" cost=\"$total_cost\" xmlns:xs=\"http://www.gouyg.com\">\n";
-	if ($error !== '') {
-		echo "  <error><![CDATA[" . $error . "]]></error>\n";
-	}
-	foreach ($docs as $doc) {
-		echo "  <doc index=\"" . $doc->rank() . "\" percent=\"" . $doc->percent() . "%\">\n";
-		foreach ($doc as $k => $v) {
-			echo "    <$k>";
-			echo is_numeric($v) ? $v : "\n      <![CDATA[" . $v . "]]>\n    ";
-			echo "</$k>\n";
+		foreach ($docs as $doc) {
+			echo "  <doc index=\"" . $doc->rank() . "\" percent=\"" . $doc->percent() . "%\">\n";
+			foreach ($doc as $k => $v) {
+				echo "    <$k>";
+				echo is_numeric($v) ? $v : "\n      <![CDATA[" . $v . "]]>\n    ";
+				echo "</$k>\n";
+			}
+			echo "  </doc>\n";
 		}
-		echo "  </doc>\n";
+		echo "</xs:result>\n";
+		exit(0);
 	}
-	echo "</xs:result>\n";
-	exit(0);
-}
 
-// output the data
-if ($i == 1) {
-	$doc = array_pop($docs);
-	$title = $doc ? $doc->title : $q;
-	include dirname(__FILE__) . '/show.tpl';
-} else {
-	include dirname(__FILE__) . '/search.tpl';
+	// output the data
+	if ($i == 1) {
+		$doc = array_pop($docs);
+		$title = $doc ? $doc->title : $q;
+		include dirname(__FILE__) . '/show.tpl';
+	} else {
+		include dirname(__FILE__) . '/search.tpl';
+	}
 }
 

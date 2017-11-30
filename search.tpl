@@ -27,6 +27,10 @@
       <h1><a href="<?php echo $_SERVER['SCRIPT_NAME']; ?>"><img src="img/logo.jpg" /></a></h1>
       <form class="form-search" id="q-form" method="get">
         <div class="input-append" id="q-input">
+          <select name="search_type">
+            <option value="book">电子书</option>
+            <option value="online">在线阅读</option>
+          </select>
           <input type="text" class="span6 search-query" name="q" title="输入任意关键词皆可搜索" value="<?php echo htmlspecialchars($q); ?>">
           <button type="submit" class="btn">搜索</button>
         </div>
