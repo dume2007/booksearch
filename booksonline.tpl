@@ -105,8 +105,8 @@
           <p><?php echo $search->highlight(strip_tags($doc->description)); ?></p>
           <p class="field-info text-error">
             <!--<span><strong>Index:</strong><?php echo htmlspecialchars($doc->index); ?></span>-->
+                <span><strong>作者:</strong><a href="/?search_type=online&q=<?php echo $doc->author;?>&f=author&s=relevance"><?php echo $doc->author; ?></a></span>
                 <span><strong>最新章节:</strong><?php echo $doc->last_chapter; ?></span>
-                <span><strong>作者:</strong><a href="/?q=<?php echo $doc->author;?>&f=author&s=relevance"><?php echo $doc->author; ?></a></span>
                 <span><strong>字数:</strong><?php echo $doc->size; ?></span>
                 <span><strong>状态:</strong><?php echo $doc->state; ?></span>
                 <span><strong>更新时间:</strong><?php echo date('Y-m-d', $doc->updatetime); ?></span>
