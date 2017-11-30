@@ -71,7 +71,7 @@ $docs = $related = $corrected = $hot = array();
 $error = $pager = '';
 $total_begin = microtime(true);
 
-if($search_type == 'online') {
+if($search_type == 'online' && in_array($f, ['_all','title'])) {
 	try {
 		$redis = new Redis();  
 		$ret = $redis->connect("localhost", "6379");  //php客户端设置的ip及端口
