@@ -27,7 +27,7 @@
       <h1><a href="<?php echo $_SERVER['SCRIPT_NAME']; ?>"><img src="img/logo.jpg" /></a></h1>
       <form class="form-search" id="q-form" method="get">
         <div class="input-append" id="q-input">
-          <select name="search_type" style="width:80px;">
+          <select name="search_type" style="width:85px;">
             <option value="book">电子书</option>
             <option value="online" selected="">在线阅读</option>
           </select> &nbsp;
@@ -105,12 +105,12 @@
           <p><?php echo $search->highlight(strip_tags($doc->description)); ?></p>
           <p class="field-info text-error">
             <!--<span><strong>Index:</strong><?php echo htmlspecialchars($doc->index); ?></span>-->
-                <span><strong>分类:</strong><a href="/?q=<?php echo $doc->classname;?>&f=classname&s=relevance"><?php echo $doc->classname; ?></a></span>
-                <span><strong>栏目:</strong><a href="/?q=<?php echo $doc->typename;?>&f=typename&s=relevance"><?php echo $doc->typename; ?></a></span>
+                <span><strong>最新章节:</strong><?php echo $doc->last_chapter; ?></span>
+                <span><strong>更新时间:</strong><?php echo date('Y-m-d', $doc->updatetime); ?></span>
                 <span><strong>作者:</strong><a href="/?q=<?php echo $doc->author;?>&f=author&s=relevance"><?php echo $doc->author; ?></a></span>
-        <span><strong>录入时间:</strong><?php echo date('Y-m-d', $doc->addtime); ?></span>
-                <span><strong>信息:</strong><?php echo str_replace('||',',',$doc->info); ?></span>
-                <!--<span><strong>Indextime:</strong><?php echo htmlspecialchars($doc->indextime); ?></span>-->
+                <span><strong>字数:</strong><?php echo date('Y-m-d', $doc->size); ?></span>
+                <span><strong>状态:</strong><?php echo date('Y-m-d', $doc->state); ?></span>
+                <span><strong>录入时间:</strong><?php echo date('Y-m-d', $doc->addtime); ?></span>
           </p>
         </dd>
         <?php endforeach; ?>
