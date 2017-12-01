@@ -71,23 +71,6 @@ $docs = $related = $corrected = $hot = array();
 $error = $pager = '';
 $total_begin = microtime(true);
 
-if($search_type == 'online' && in_array($f, ['_all','title'])) {
-	try {
-		$redis = new Redis();  
-		$ret = $redis->connect("localhost", "6379");  //php客户端设置的ip及端口
-		$redis->auth('dc0623');
-		$redis->select(2);
-
-		if ($ret && $q) {
-			$redis->lPush('BOOK_SEARCH_QUEUE', $q);
-		}
-	}
-	catch (XSException $e) {
-		$error = strval($e);
-		die($error);
-	}
-}
-
 // perform the search
 try {
 	$xs_index = $search_type == 'online' ? 'booksonline' : 'books';
@@ -182,6 +165,23 @@ if ($xml === 'yes' && !empty($q)) {
 
 // output the data
 if ($search_type == 'online') {
+	if($search_type == 'online' && in_array($f, ['_all','title'])) {
+		try {
+			$redis = new Redis();  
+			$ret = $redis->connect("localhost", "6379");  //php客户端设置的ip及端口
+			$redis->auth('dc0623');
+			$redis->select(2);
+
+			if ($ret && $q) {
+				$redis->lPush('BOOK_SEARCH_QUEUE', $q);
+			}
+		}
+		catch (XSException $e) {
+			$error = strval($e);
+			die($error);
+		}
+	}
+
 	include dirname(__FILE__) . '/booksonline.tpl';
 }
 elseif ($i == 1) {
