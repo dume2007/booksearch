@@ -97,9 +97,11 @@
       
       <!-- result doc list -->
       <dl class="result-list">
-        <?php foreach ($docs as $doc): ?>
+        <?php foreach ($docs as $doc):
+          $local_count = (int) $redis->get('chapters:'.$doc->index);
+        ?>
         <dt>
-          <a href="/?q=<?php echo urlencode($doc->title); ?>&f=title&s=relevance&i=1" target="_blank"><h4><?php echo $doc->rank(); ?>. <?php echo $search->highlight(strip_tags($doc->title)); ?> <small>[<?php echo $doc->percent(); ?>%]</small></h4></a>          
+          <a href="/?q=<?php echo urlencode($doc->title); ?>&f=title&s=relevance&i=1" target="_blank"><h4><?php echo $doc->rank(); ?>. <?php echo $search->highlight(strip_tags($doc->title)); ?> <small>[<?php echo $doc->percent(); ?>%]</small></h4></a>
         </dt>
         <dd>
           <p><?php echo $search->highlight(strip_tags($doc->description)); ?></p>
@@ -109,6 +111,7 @@
                 <span><strong>最新章节:</strong><?php echo $doc->last_chapter; ?></span>
                 <span><strong>字数:</strong><?php echo $doc->size; ?></span>
                 <span><strong>状态:</strong><?php echo $doc->state; ?></span>
+                <span><strong>下载进度:</strong><?php echo $local_count.'/'.$doc->urls_count; ?></span>
                 <span><strong>更新时间:</strong><?php echo date('Y-m-d', $doc->updatetime); ?></span>
           </p>
         </dd>
