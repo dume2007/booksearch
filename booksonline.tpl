@@ -98,15 +98,14 @@
       <!-- result doc list -->
       <dl class="result-list">
         <?php foreach ($docs as $doc):
-          $local_count = (int) $redis->get('chapters:'.$doc->index);
+          $local_count = (int) $redis->get('chapters:'.$doc->md5id);
         ?>
         <dt>
-          <a href="/?q=<?php echo urlencode($doc->index); ?>&f=md5id&s=relevance&i=1&search_type=online" target="_blank"><h4><?php echo $doc->rank(); ?>. <?php echo $search->highlight(strip_tags($doc->title)); ?> <small>[<?php echo $doc->percent(); ?>%]</small></h4></a>
+          <a href="/?q=<?php echo urlencode($doc->md5id); ?>&f=md5id&s=relevance&i=1&search_type=online" target="_blank"><h4><?php echo $doc->rank(); ?>. <?php echo $search->highlight(strip_tags($doc->title)); ?> <small>[<?php echo $doc->percent(); ?>%]</small></h4></a>
         </dt>
         <dd>
           <p><?php echo $search->highlight(strip_tags($doc->description)); ?></p>
           <p class="field-info text-error">
-            <!--<span><strong>Index:</strong><?php echo htmlspecialchars($doc->index); ?></span>-->
                 <span><strong>作者:</strong><a href="/?search_type=online&q=<?php echo $doc->author;?>&f=author&s=relevance"><?php echo $doc->author; ?></a></span>
                 <span><strong>最新章节:</strong><?php echo $doc->last_chapter; ?></span>
                 <span><strong>字数:</strong><?php echo $doc->size; ?></span>
