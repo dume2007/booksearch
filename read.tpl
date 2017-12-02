@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="googlebot" content="index,noarchive,nofollow,noodp" />
 <meta name="robots" content="index,nofollow,noarchive,noodp" />
-<title><?php echo $content['title'];?>《<?php echo $data['title'];?>》 - Books 搜索 - Powered by 东城狗狗搜索</title>
+<title>《<?php echo $data['title'];?>》 - Books 搜索 - Powered by 东城狗狗搜索</title>
 <meta http-equiv="keywords" content="Fulltext Search Engine Books 东城狗狗搜索" />
 <meta http-equiv="description" content="Fulltext Search for Books, Powered by 东城狗狗搜索/WEB2.0 " />
 <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
@@ -65,11 +65,9 @@
             
       <!-- result doc list -->
       <dl class="result-list">
-        <dt><h1><?php echo $data['title'];?>, <?php echo $content['title'];?></h1></dt>
+        <dt><h1><?php echo $data['title'];?></h1></dt>
         <dd>
-        <?php 
-        echo $content['body'];
-        ?>
+          <div id="body">加载中...</div>
         </dd>
       </dl>
     </div>
@@ -88,6 +86,10 @@
 <script type="text/javascript" src="http://apps.bdimg.com/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
 <script type="text/javascript">
 $(function(){
+    $.getJSON("http://lnpan.b0.upaiyun.com/book/read_all/12dcf11371825e76ac09b59ce4d7e66c/11dc914b187ab0a44010bf19c4d05436?jsoncallback=?", function(data){
+      console.log(data);
+    });
+
     // input tips
     $('#q-input .search-query').focus(function(){
         if ($(this).val() == $(this).attr('title')) {
