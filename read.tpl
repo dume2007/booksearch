@@ -85,11 +85,11 @@
 <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/1.6.2/jquery.min.js"></script>
 <script type="text/javascript" src="http://apps.bdimg.com/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
 <script type="text/javascript">
-function jcall(data) {
-  console.log(data);
-}
-
 $(function(){
+    function jcall(data) {
+      console.log(data);
+    }
+
     $.getJSON("http://lnpan.b0.upaiyun.com/book/read_all/12dcf11371825e76ac09b59ce4d7e66c/11dc914b187ab0a44010bf19c4d05436.js?callback=jcall");
 
     // input tips
