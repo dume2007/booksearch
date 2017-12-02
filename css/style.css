@@ -112,3 +112,4 @@ footer p {
 .ui-autocomplete li.ui-menu-item {
 	font-size: 12px; 
 }
+.chapters_list li{display: block;width: 33%;list-style-type: none;}

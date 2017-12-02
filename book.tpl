@@ -66,7 +66,7 @@
       <!-- result doc list -->
       <dl class="result-list">
         <dt><h1><?php echo $data['title'];?></h1></dt>
-        <dd><ul>
+        <dd><ul class="chapters_list">
         <?php 
         foreach($data['titles'] as $k=>$title){
             echo '<li><a href="'.$data['urls'][$k].'">'.$title.'</a></li>';
