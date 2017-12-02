@@ -90,7 +90,7 @@ $(function(){
       console.log(data);
     }
 
-    $.getJSON("http://lnpan.b0.upaiyun.com/book/read_all/12dcf11371825e76ac09b59ce4d7e66c/11dc914b187ab0a44010bf19c4d05436.js?callback=jcall");
+    $.getJSON("http://lnpan.b0.upaiyun.com/book/read_all/12dcf11371825e76ac09b59ce4d7e66c/11dc914b187ab0a44010bf19c4d05436.json?callback=jcall");
 
     // input tips
     $('#q-input .search-query').focus(function(){
