@@ -93,7 +93,7 @@ function _body(yurl) {
       dataType: 'jsonp',
       data: undefined,
       jsonpCallback: 'jcall',
-      timeout: 2000,
+      timeout: 1000,
       success: function(json) {
         $('h1#title').append(json.title);
         $('#body').hide().html(json.body).slideDown('slow');
