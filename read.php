@@ -13,4 +13,15 @@ if(empty($book)) {
 $id = $_GET['id'];
 $data = json_decode($book, true);
 
+//查找上下章
+$total = count($data['urls']);
+foreach ($data['urls'] as $k=>$url) {
+    $md5url = md5($url);
+    if($md5url == $id) {
+        $data['pre'] = $k>0 ? [$data['urls'][$k-1], $data['titles'][$k-1]] : [];
+        $data['next'] = $k<$total ? [$data['urls'][$k+1], $data['titles'][$k+1]] : [];
+        break;
+    }
+}
+
 include dirname(__FILE__) . '/read.tpl';
