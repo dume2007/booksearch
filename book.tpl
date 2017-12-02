@@ -71,7 +71,8 @@
         foreach($data['titles'] as $k=>$title){
             echo '<li><a href="'.$data['urls'][$k].'">'.$title.'</a></li>';
         }
-        ?> 
+        ?>
+        <li style="clear: both;float: none;"></li>
         </ul></dd>
       </dl>
     </div>
