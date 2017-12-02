@@ -101,7 +101,7 @@
           $local_count = (int) $redis->get('chapters:'.$doc->md5id);
         ?>
         <dt>
-          <a href="/?q=<?php echo urlencode($doc->md5id); ?>&f=md5id&s=relevance&i=1&search_type=online" target="_blank"><h4><?php echo $doc->rank(); ?>. <?php echo $search->highlight(strip_tags($doc->title)); ?> <small>[<?php echo $doc->percent(); ?>%]</small></h4></a>
+          <a href="/book.php?q=<?php echo urlencode($doc->md5id); ?>" target="_blank"><h4><?php echo $doc->rank(); ?>. <?php echo $search->highlight(strip_tags($doc->title)); ?> <small>[<?php echo $doc->percent(); ?>%]</small></h4></a>
         </dt>
         <dd>
           <p><?php echo $search->highlight(strip_tags($doc->description)); ?></p>
