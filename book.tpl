@@ -69,7 +69,7 @@
         <dd><ul class="chapters_list">
         <?php 
         foreach($data['titles'] as $k=>$title){
-            echo '<li><a href="/read.php?q='.$q.'&id='.$data['urls'][$k].'">'.$title.'</a></li>';
+            echo '<li><a href="/read.php?q='.$q.'&id='.md5($data['urls'][$k]).'">'.$title.'</a></li>';
         }
         ?>
         <li style="clear: both;float: none;border:0;"></li>
