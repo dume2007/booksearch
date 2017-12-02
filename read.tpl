@@ -65,7 +65,7 @@
             
       <!-- result doc list -->
       <dl class="result-list">
-        <dt><h1><?php echo $data['title'];?></h1></dt>
+        <dt><h1 id="title">《<?php echo $data['title'];?>》</h1></dt>
         <dd>
           <div id="body">加载中...</div>
         </dd>
@@ -97,8 +97,8 @@ $(function(){
         data: undefined,
         jsonpCallback: 'jcall',
         success: function(json) {
-          $('h1').append(json.title);
-          $('#body').hide().html(json.body).show();
+          $('h1#title').append(json.title);
+          $('#body').hide('slow').html(json.body).slideDown();
         }
     });
 
