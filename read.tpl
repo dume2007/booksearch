@@ -97,11 +97,8 @@ $(function(){
         data: undefined,
         jsonpCallback: 'jcall',
         success: function(json) {
-          console.log(json);
-        },
-        complete: function (XMLHttpRequest, textStatus) {
-          console.log(textStatus);
-          console.log(XMLHttpRequest);
+          $('h1').append(json.title);
+          $('#body').hide().html(json.body).show();
         }
     });
 
