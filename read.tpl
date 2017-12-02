@@ -85,18 +85,30 @@
 <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/1.6.2/jquery.min.js"></script>
 <script type="text/javascript" src="http://apps.bdimg.com/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
 <script type="text/javascript">
-$(function(){
-    $.ajax({
-        url: 'http://lnpan.b0.upaiyun.com/book/read_all/<?php echo $q;?>/<?php echo $id;?>',
-        type: 'get',
-        dataType: 'jsonp',
-        data: undefined,
-        jsonpCallback: 'jcall',
-        success: function(json) {
-          $('h1#title').append(json.title);
-          $('#body').hide().html(json.body).slideDown('slow');
+var g_b = 0;
+function _body(yurl) {
+  $.ajax({
+      url: yurl,
+      type: 'get',
+      dataType: 'jsonp',
+      data: undefined,
+      jsonpCallback: 'jcall',
+      success: function(json) {
+        $('h1#title').append(json.title);
+        $('#body').hide().html(json.body).slideDown('slow');
+      },
+      error: function (XMLHttpRequest, textStatus, errorThrown) {
+        console.log(textStatus);
+        if(g_b == 0) {
+          g_b++;
+          _body('/book/read_all/<?php echo $q;?>/<?php echo $id;?>');
         }
-    });
+      }
+  });
+}
+
+$(function(){
+    _body('http://lnpan.b0.upaiyun.com/book/read_all/<?php echo $q;?>/<?php echo $id;?>');
 
     // input tips
     $('#q-input .search-query').focus(function(){
