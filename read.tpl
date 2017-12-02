@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="googlebot" content="index,noarchive,nofollow,noodp" />
 <meta name="robots" content="index,nofollow,noarchive,noodp" />
-<title>在线阅读《<?php echo $data['title'];?>》 - Books 搜索 - Powered by 东城狗狗搜索</title>
+<title><?php echo $content['title'];?>《<?php echo $data['title'];?>》 - Books 搜索 - Powered by 东城狗狗搜索</title>
 <meta http-equiv="keywords" content="Fulltext Search Engine Books 东城狗狗搜索" />
 <meta http-equiv="description" content="Fulltext Search for Books, Powered by 东城狗狗搜索/WEB2.0 " />
 <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
@@ -65,15 +65,12 @@
             
       <!-- result doc list -->
       <dl class="result-list">
-        <dt><h1><?php echo $data['title'];?></h1></dt>
-        <dd><ul class="chapters_list">
+        <dt><h1><?php echo $data['title'];?>, <?php echo $content['title'];?></h1></dt>
+        <dd>
         <?php 
-        foreach($data['titles'] as $k=>$title){
-            echo '<li><a href="/read.php?q='.$q.'&id='.$data['urls'][$k].'">'.$title.'</a></li>';
-        }
+        echo $content['body'];
         ?>
-        <li style="clear: both;float: none;border:0;"></li>
-        </ul></dd>
+        </dd>
       </dl>
     </div>
         <!-- end search result -->
