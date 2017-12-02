@@ -93,11 +93,12 @@ function _body(yurl) {
       dataType: 'jsonp',
       data: undefined,
       jsonpCallback: 'jcall',
+      timeout: 5000,
       success: function(json) {
         $('h1#title').append(json.title);
         $('#body').hide().html(json.body).slideDown('slow');
       },
-      complete: function (XMLHttpRequest, textStatus) {
+      error: function (XMLHttpRequest, textStatus) {
         console.log(textStatus);
         if(g_b == 0) {
           g_b++;
