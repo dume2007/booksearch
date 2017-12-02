@@ -112,4 +112,10 @@ footer p {
 .ui-autocomplete li.ui-menu-item {
 	font-size: 12px; 
 }
-.chapters_list li{display: block;width: 33%;list-style-type: none;}
+.chapters_list li{line-height: 29px;
+    height: 29px;
+    float: left;
+    display: block;
+    width: 33%;
+    list-style-type: none;
+    border-bottom: 1px solid #efebeb;}
