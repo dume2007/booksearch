@@ -72,7 +72,7 @@
             echo '<li><a href="'.$data['urls'][$k].'">'.$title.'</a></li>';
         }
         ?>
-        <li style="clear: both;float: none;"></li>
+        <li style="clear: both;float: none;border:0;"></li>
         </ul></dd>
       </dl>
     </div>
