@@ -11,11 +11,6 @@ if(empty($book)) {
 }
 
 $id = $_GET['id'];
-$cachefile = "/home/wwwroot/default/lnpan_queue/lnsuu/read_all/{$q}/{$id}";
-if(file_exists($cachefile)) {
-    $content = file_get_contents($cachefile);
-    $content = json_decode($content, true);
-}
 $data = json_decode($book, true);
 
 include dirname(__FILE__) . '/read.tpl';
