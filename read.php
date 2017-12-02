@@ -18,8 +18,8 @@ $total = count($data['urls']);
 foreach ($data['urls'] as $k=>$url) {
     $md5url = md5($url);
     if($md5url == $id) {
-        $data['pre'] = $k>0 ? [$data['urls'][$k-1], $data['titles'][$k-1]] : [];
-        $data['next'] = $k<$total ? [$data['urls'][$k+1], $data['titles'][$k+1]] : [];
+        $data['pre'] = $k>0 ? [md5($data['urls'][$k-1]), $data['titles'][$k-1]] : [];
+        $data['next'] = $k<$total ? [md5($data['urls'][$k+1]), $data['titles'][$k+1]] : [];
         break;
     }
 }

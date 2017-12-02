@@ -69,10 +69,11 @@
         <dd>
           <div id="body">加载中...</div>
           <?php 
+          echo '<p><b>回到目录：</b><a href="/book.php?q='.$q.'">'.$data['title'].'</a></p>';
           if($data['pre']) {
             echo '<p><b>上一章：</b><a href="/read.php?q='.$q.'&id='.$data['pre'][0].'">'.$data['pre'][1].'</a></p>';
           }
-          echo '<p><b>回到目录：</b><a href="/book.php?q='.$q.'">'.$data['title'].'</a></p>';
+
           if($data['next']) {
             echo '<p><b>下一章：</b><a href="/read.php?q='.$q.'&id='.$data['next'][0].'">'.$data['next'][1].'</a></p>';
           }
