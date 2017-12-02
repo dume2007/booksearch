@@ -97,11 +97,11 @@ function _body(yurl) {
         $('h1#title').append(json.title);
         $('#body').hide().html(json.body).slideDown('slow');
       },
-      error: function (XMLHttpRequest, textStatus, errorThrown) {
+      complete: function (XMLHttpRequest, textStatus) {
         console.log(textStatus);
         if(g_b == 0) {
           g_b++;
-          _body('/book/read_all/<?php echo $q;?>/<?php echo $id;?>');
+          //_body('/book/read_all/<?php echo $q;?>/<?php echo $id;?>');
         }
       }
   });
