@@ -86,10 +86,6 @@
 <script type="text/javascript" src="http://apps.bdimg.com/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
 <script type="text/javascript">
 $(function(){
-    function jcall(data) {
-      console.log(data);
-    }
-
     $.ajax({
         url: 'http://lnpan.b0.upaiyun.com/book/read_all/<?php echo $q;?>/<?php echo $id;?>',
         type: 'get',
@@ -98,7 +94,7 @@ $(function(){
         jsonpCallback: 'jcall',
         success: function(json) {
           $('h1#title').append(json.title);
-          $('#body').hide('slow').html(json.body).slideDown();
+          $('#body').hide().html(json.body).slideDown('slow');
         }
     });
 
