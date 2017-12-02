@@ -107,7 +107,7 @@ function _body(yurl) {
       success: function(json) {
         $('h1#title').append(json.title);
         $('#body').hide().html(json.body).slideDown('slow');
-        document.cookie = "_read_history=" + escape(json.title) + ',' + escape('<?php echo $q;?>') + ',' + escape('<?php echo $id;?>');
+        document.cookie = "_read_history=" + json.title + ',' + '<?php echo $q;?>' + ',' + '<?php echo $id;?>';
       },
       error: function (XMLHttpRequest, textStatus) {
         console.log(textStatus);
