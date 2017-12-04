@@ -23,43 +23,6 @@
 <body>
 <div class="container">
   <div class="row">
-    <!-- search form -->
-    <div class="span12">
-      <h1><a href="/index.php"><img src="img/logo.jpg" /></a></h1>
-      <form action="/index.php" class="form-search" id="q-form" method="get">
-        <div class="input-append" id="q-input">
-          <select name="search_type" style="width:85px;">
-            <option value="book">电子书</option>
-            <option value="online" selected="">在线阅读</option>
-          </select> &nbsp;
-          <input type="text" class="span6 search-query" name="q" title="输入任意关键词皆可搜索" value="<?php echo $data['title'];?>">
-          <button type="submit" class="btn">搜索</button>
-        </div>
-        <div class="condition" id="q-options">
-          <label class="radio inline"><input type="radio" name="f" value="title" checked />书名</label>
-            <label class="radio inline"><input type="radio" name="f" value="classname"  />分类</label>
-            <label class="radio inline"><input type="radio" name="f" value="typename"  />栏目</label>
-            <label class="radio inline"><input type="radio" name="f" value="author" />作者</label>
-          <label class="radio inline">
-            <input type="radio" name="f" value="_all"  />全文
-          </label>
-          <label class="checkbox inline">
-            <input type="checkbox" name="m" value="yes"  />模糊搜索 
-          </label>
-          <label class="checkbox inline">
-            <input type="checkbox" name="syn" value="yes"  />同义词
-          </label>
-          按
-          <select name="s" size="1">
-            <option value="relevance">相关性</option>
-            <option value="addtime_DESC" >按时间从大到小</option>
-                    <option value="addtime_ASC" >按时间从小到大</option>
-          </select>
-          排序
-        </div>
-      </form>
-    </div>
-
     <!-- begin search result -->
     <div class="span12" style="background-color:#9fc383;">
             
