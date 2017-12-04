@@ -90,11 +90,9 @@ $(function(){
         var e = event || window.event || arguments.callee.caller.arguments[0];
         console.log(e.keyCode);
         if(e && e.keyCode==39 && $('#next_link')){ // 按 ->
-          console.log($('#next_link').attr('href'));
           window.location.replace($('#next_link').attr('href'));
         }
         if(e && e.keyCode==37 && $('#pre_link')){ // 按 <-
-          console.log($('#pre_link').attr('href'));
           window.location.replace($('#pre_link').attr('href'));
         }
     };
