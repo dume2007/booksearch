@@ -20,11 +20,11 @@
 <![endif]-->
 </head>
 <!-- search.tpl Books 搜索模板 -->  
-<body>
+<body style="background-color:#9fc383;">
 <div class="container">
   <div class="row">
     <!-- begin search result -->
-    <div class="span12" style="background-color:#9fc383;">
+    <div class="span12">
             
       <!-- result doc list -->
       <dl class="result-list">
