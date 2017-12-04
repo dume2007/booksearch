@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="googlebot" content="index,noarchive,nofollow,noodp" />
 <meta name="robots" content="index,nofollow,noarchive,noodp" />
-<title>$data['curr']《<?php echo $data['title'];?>》 - Books 搜索 - Powered by 东城狗狗搜索</title>
+<title><?php echo $data['curr'];?>《<?php echo $data['title'];?>》 - Books 搜索 - Powered by 东城狗狗搜索</title>
 <meta http-equiv="keywords" content="Fulltext Search Engine Books 东城狗狗搜索" />
 <meta http-equiv="description" content="Fulltext Search for Books, Powered by 东城狗狗搜索/WEB2.0 " />
 <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
