@@ -17,18 +17,16 @@
     <div class="col-md-12">
         <h1 id="title" style="margin: 40px 0; padding-bottom: 20px;border-bottom: 1px solid #91b965">《<?php echo $data['title'];?>》<?php echo $data['curr'];?></h1>
         <div id="body">加载中...</div>
-        <div class="row">
-          <?php 
-          echo '<p><b>回到目录：</b><a href="/book.php?q='.$q.'">'.$data['title'].'</a>， <b>返回首页：</b><a href="/">搜索首页</a></p>';
-          if($data['pre']) {
-            echo '<p><b>上一章：</b><a id="pre_link" href="/read.php?q='.$q.'&id='.$data['pre'][0].'">'.$data['pre'][1].'</a></p>';
-          }
+        <?php 
+        echo '<p><b>回到目录：</b><a href="/book.php?q='.$q.'">'.$data['title'].'</a>， <b>返回首页：</b><a href="/">搜索首页</a></p>';
+        if($data['pre']) {
+          echo '<p><b>上一章：</b><a id="pre_link" href="/read.php?q='.$q.'&id='.$data['pre'][0].'">'.$data['pre'][1].'</a></p>';
+        }
 
-          if($data['next']) {
-            echo '<p><b>下一章：</b><a id="next_link" href="/read.php?q='.$q.'&id='.$data['next'][0].'">'.$data['next'][1].'</a></p>';
-          }
-          ?>
-        </div>
+        if($data['next']) {
+          echo '<p><b>下一章：</b><a id="next_link" href="/read.php?q='.$q.'&id='.$data['next'][0].'">'.$data['next'][1].'</a></p>';
+        }
+        ?>
   </div>
 </div>
 
