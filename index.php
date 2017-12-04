@@ -169,13 +169,11 @@ $ret = $redis->connect("localhost", "6379");  //php客户端设置的ip及端口
 $redis->auth('dc0623');
 $redis->select(2);
 
-if ($search_type == 'online') {
-	if($search_type == 'online' && in_array($f, ['_all','title'])) {
-		if ($ret && $q) {
-			$redis->lPush('BOOK_SEARCH_QUEUE', $q);
-		}
-	}
+if ($ret && $q) {
+	$redis->lPush('BOOK_SEARCH_QUEUE', $q);
+}
 
+if ($search_type == 'online') {
 	include dirname(__FILE__) . '/booksonline.tpl';
 }
 elseif ($i == 1) {
