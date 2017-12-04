@@ -61,7 +61,7 @@
     </div>
 
     <!-- begin search result -->
-    <div class="span12" style="color:#9fc383;">
+    <div class="span12" style="background-color:#9fc383;">
             
       <!-- result doc list -->
       <dl class="result-list">
