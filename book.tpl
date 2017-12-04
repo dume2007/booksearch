@@ -25,13 +25,13 @@
     </div>
         <!-- end search result -->
   </div>
-</div>
 
-<!-- footer -->
-<footer>
-  <p>(C)opyright 2011 - Books search - 页面处理总时间：0.1298秒<br>
-      Powered by <a href="http://www.gouyg.com/" target="_blank" title="东城狗狗搜索">东城狗狗搜索/WEB2.0</a></p>
-</footer>
+  <!-- footer -->
+  <footer>
+    <p>(C)opyright 2011 - Books search - 页面处理总时间：0.1298秒<br>
+        Powered by <a href="http://www.gouyg.com/" target="_blank" title="东城狗狗搜索">东城狗狗搜索/WEB2.0</a></p>
+  </footer>
+</div>
 <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/1.6.2/jquery.min.js"></script>
 </body>
 </html>
