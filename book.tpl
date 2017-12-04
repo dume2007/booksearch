@@ -28,7 +28,7 @@
             
       <!-- result doc list -->
       <dl class="result-list">
-        <dt><h1><?php echo $data['title'];?></h1></dt>
+        <dt><h1><?php echo $data['title'];?> <sup><a href="/">[返回首页]</a></sup></h1></dt>
         <dd><div id="body"><ul class="chapters_list">
         <?php 
         foreach($data['titles'] as $k=>$title){
