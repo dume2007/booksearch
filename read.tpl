@@ -27,7 +27,7 @@
       <dl class="result-list">
         <dt><h1 id="title" style="text-align: center;font-size: 90px;margin: 20px 0;">《<?php echo $data['title'];?>》<?php echo $data['curr'];?></h1></dt>
         <dd>
-          <div id="body" style="line-height:60px;font-size:38px; padding: 15px;">加载中...</div>
+          <div id="body" style="line-height:60px;font-size:40px; padding: 25px;">加载中...</div>
           <?php 
           echo '<p><b>回到目录：</b><a href="/book.php?q='.$q.'">'.$data['title'].'</a>, <b>返回首页：</b><a href="/">搜索首页</a></p>';
           if($data['pre']) {
