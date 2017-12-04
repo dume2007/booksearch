@@ -100,6 +100,7 @@ function _body(yurl) {
   $.ajax({
       url: yurl,
       type: 'get',
+      cache: true,
       dataType: 'jsonp',
       data: undefined,
       jsonpCallback: 'jcall',
