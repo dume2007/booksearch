@@ -18,7 +18,7 @@
 <![endif]-->
 </head>
 <!-- search.tpl Books 搜索模板 -->  
-<body style="background-color:#9fc383;line-height:70px;font-size:1.25em;padding:0 40px;">
+<body style="background-color:#9fc383;line-height:2em;font-size:2em;padding:0 40px;">
 <div class="container-fluid">
   <div class="row">
     <!-- begin search result -->      
