@@ -18,7 +18,7 @@
 <![endif]-->
 </head>
 <!-- search.tpl Books 搜索模板 -->  
-<body style="background-color:#9fc383;line-height:70px;font-size:45px;padding:0 40px;">
+<body style="background-color:#9fc383;line-height:70px;font-size:1.25em;padding:0 40px;">
 <div class="container-fluid">
   <div class="row">
     <!-- begin search result -->      
@@ -45,10 +45,8 @@
 
 <!-- footer -->
 <footer>
-  <div class="container">
     <p>(C)opyright 2011 - Books search - 页面处理总时间：0.1298秒<br>
       Powered by <a href="http://www.gouyg.com/" target="_blank" title="东城狗狗搜索">东城狗狗搜索/WEB2.0</a></p>
-  </div>
 </footer>
 
 <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/1.6.2/jquery.min.js"></script>
