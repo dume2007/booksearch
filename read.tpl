@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="googlebot" content="index,noarchive,nofollow,noodp" />
 <meta name="robots" content="index,nofollow,noarchive,noodp" />
-<title>《<?php echo $data['title'];?>》 - Books 搜索 - Powered by 东城狗狗搜索</title>
+<title>$data['curr']《<?php echo $data['title'];?>》 - Books 搜索 - Powered by 东城狗狗搜索</title>
 <meta http-equiv="keywords" content="Fulltext Search Engine Books 东城狗狗搜索" />
 <meta http-equiv="description" content="Fulltext Search for Books, Powered by 东城狗狗搜索/WEB2.0 " />
 <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
@@ -65,7 +65,7 @@
             
       <!-- result doc list -->
       <dl class="result-list">
-        <dt><h1 id="title">《<?php echo $data['title'];?>》</h1></dt>
+        <dt><h1 id="title">《<?php echo $data['title'];?>》<?php echo $data['curr'];?></h1></dt>
         <dd>
           <div id="body">加载中...</div>
           <?php 
@@ -103,9 +103,8 @@ function _body(yurl) {
       dataType: 'jsonp',
       data: undefined,
       jsonpCallback: 'jcall',
-      timeout: 1000,
+      timeout: 3000,
       success: function(json) {
-        $('h1#title').append(json.title);
         $('#body').hide().html(json.body).slideDown('slow');
         document.cookie = "_read_history=" + escape(json.title) + ',' + escape('<?php echo $q;?>') + ',' + escape('<?php echo $id;?>');
       },
