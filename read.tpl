@@ -8,9 +8,7 @@
 <title><?php echo $data['curr'];?>《<?php echo $data['title'];?>》 - Books 搜索 - Powered by 东城狗狗搜索</title>
 <meta http-equiv="keywords" content="Fulltext Search Engine Books 东城狗狗搜索" />
 <meta http-equiv="description" content="Fulltext Search for Books, Powered by 东城狗狗搜索/WEB2.0 " />
-<link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
-<link rel="stylesheet" type="text/css" href="css/style.css"/>
-<link rel="stylesheet" href="http://apps.bdimg.com/libs/jqueryui/1.9.2/themes/redmond/jquery-ui.css" type="text/css" media="all" />
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
 <!--[if lt IE 9]>
 <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
@@ -24,7 +22,7 @@
 <div class="container">
   <div class="row">
     <!-- begin search result -->
-    <div class="span12">
+    
             
       <!-- result doc list -->
       <dl class="result-list">
@@ -43,7 +41,6 @@
           ?>
         </dd>
       </dl>
-    </div>
         <!-- end search result -->
   </div>
 </div>
@@ -56,7 +53,6 @@
   </div>
 </footer>
 <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/1.6.2/jquery.min.js"></script>
-<script type="text/javascript" src="http://apps.bdimg.com/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
 <script type="text/javascript">
 var g_b = 0;
 function _body(yurl) {
@@ -96,32 +92,6 @@ $(function(){
           window.location.replace($('#pre_link').attr('href'));
         }
     };
-
-    // input tips
-    $('#q-input .search-query').focus(function(){
-        if ($(this).val() == $(this).attr('title')) {
-            $(this).val('').removeClass('tips');
-        }
-    }).blur(function(){
-        if ($(this).val() == '' || $(this).val() == $(this).attr('title')) {
-            $(this).addClass('tips').val($(this).attr('title'));
-        }
-    }).blur().autocomplete({
-        'source':'suggest.php',
-        'select':function(ev,ui) {
-            $('#q-input .search-query').val(ui.item.label);
-            $('#q-form').submit();
-        }
-    });
-    // submit check
-    $('#q-form').submit(function(){
-        var $input = $('#q-input .search-query');
-        if ($input.val() == $input.attr('title')) {
-            alert('请先输入关键词');
-            $input.focus();
-            return false;
-        }
-    }); 
 }); 
 </script>
 </body>
