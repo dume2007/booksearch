@@ -34,11 +34,11 @@
           <?php 
           echo '<p><b>回到目录：</b><a href="/book.php?q='.$q.'">'.$data['title'].'</a>, <b>返回首页：</b><a href="/">搜索首页</a></p>';
           if($data['pre']) {
-            echo '<p><b>上一章：</b><a href="/read.php?q='.$q.'&id='.$data['pre'][0].'">'.$data['pre'][1].'</a></p>';
+            echo '<p><b>上一章：</b><a id="pre_link" href="/read.php?q='.$q.'&id='.$data['pre'][0].'">'.$data['pre'][1].'</a></p>';
           }
 
           if($data['next']) {
-            echo '<p><b>下一章：</b><a href="/read.php?q='.$q.'&id='.$data['next'][0].'">'.$data['next'][1].'</a></p>';
+            echo '<p><b>下一章：</b><a id="next_link" href="/read.php?q='.$q.'&id='.$data['next'][0].'">'.$data['next'][1].'</a></p>';
           }
           ?>
         </dd>
@@ -89,14 +89,13 @@ $(function(){
     document.onkeydown=function(event){
         var e = event || window.event || arguments.callee.caller.arguments[0];
         console.log(e.keyCode);
-        if(e && e.keyCode==27){ // 按 Esc 
-            //要做的事情
-          }
-        if(e && e.keyCode==113){ // 按 F2 
-             //要做的事情
-           }            
-         if(e && e.keyCode==13){ // enter 键
-             //要做的事情
+        if(e && e.keyCode==39 && $('#next_link')){ // 按 ->
+          console.log($('#next_link').attr('href'));
+          window.location.replace($('#next_link').attr('href'));
+        }
+        if(e && e.keyCode==37 && $('#pre_link')){ // 按 <-
+          console.log($('#pre_link').attr('href'));
+          window.location.replace($('#pre_link').attr('href'));
         }
     };
 
