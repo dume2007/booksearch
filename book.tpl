@@ -66,10 +66,10 @@
       <!-- result doc list -->
       <dl class="result-list">
         <dt><h1><?php echo $data['title'];?></h1></dt>
-        <dd><div id="body"><ul class="chapters_list">
+        <dd><div id="body"><ul class="chapters_list2">
         <?php 
         foreach($data['titles'] as $k=>$title){
-            echo '<li><a href="/read.php?q='.$q.'&id='.md5($data['urls'][$k]).'">'.$title.'</a></li>';
+            echo '<li class=".col-xs-4"><a href="/read.php?q='.$q.'&id='.md5($data['urls'][$k]).'">'.$title.'</a></li>';
         }
         ?>
         <li style="clear: both;float: none;border:0;"></li>
