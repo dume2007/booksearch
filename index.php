@@ -24,7 +24,7 @@ error_reporting(E_ALL ^ E_NOTICE);
 //
 // variables
 $eu = '';
-$__ = array('q', 'm', 'f', 's', 'p', 'ie', 'oe', 'syn', 'xml', 'i', 'search_type');
+$__ = array('q', 'm', 'f', 's', 'p', 'ie', 'oe', 'syn', 'xml', 'i', 'st');
 foreach ($__ as $_) {
 	$$_ = isset($_GET[$_]) ? $_GET[$_] : '';
 }
@@ -63,7 +63,7 @@ $q = $q == 'all' ? '*' : $q;
 $s = empty($s) ? 'addtime_DESC' : $s;
 
 // base url
-$bu = $_SERVER['SCRIPT_NAME'] . '?q=' . urlencode($q) . '&m=' . $m . '&f=' . $f . '&s=' . $s . $eu;
+$bu = $_SERVER['SCRIPT_NAME'] . '?q=' . urlencode($q) . "&st={$st}" . '&m=' . $m . '&f=' . $f . '&s=' . $s . $eu;
 
 // other variable maybe used in tpl
 $count = $total = $search_cost = 0;
@@ -73,7 +73,7 @@ $total_begin = microtime(true);
 
 // perform the search
 try {
-	$xs_index = $search_type == 'online' ? 'booksonline' : 'books';
+	$xs_index = $st == 'online' ? 'booksonline' : 'books';
 	$xs = new XS($xs_index);
 	$search = $xs->search;
 	$search->setCharset('UTF-8');
@@ -173,7 +173,7 @@ if ($ret && $q) {
 	$redis->lPush('BOOK_SEARCH_QUEUE', $q);
 }
 
-if ($search_type == 'online') {
+if ($st == 'online') {
 	include dirname(__FILE__) . '/booksonline.tpl';
 }
 elseif ($i == 1) {

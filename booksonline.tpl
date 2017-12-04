@@ -27,7 +27,7 @@
       <h1><a href="<?php echo $_SERVER['SCRIPT_NAME']; ?>"><img src="img/logo.jpg" /></a></h1>
       <form class="form-search" id="q-form" method="get">
         <div class="input-append" id="q-input">
-          <select name="search_type" style="width:85px;">
+          <select name="st" style="width:85px;">
             <option value="book">电子书</option>
             <option value="online" selected="">在线阅读</option>
           </select> &nbsp;
@@ -106,7 +106,7 @@
         <dd>
           <p><?php echo $search->highlight(strip_tags($doc->description)); ?></p>
           <p class="field-info text-error">
-                <span><strong>作者:</strong><a href="/?search_type=online&q=<?php echo $doc->author;?>&f=author&s=relevance"><?php echo $doc->author; ?></a></span>
+                <span><strong>作者:</strong><a href="/?st=online&q=<?php echo $doc->author;?>&f=author&s=relevance"><?php echo $doc->author; ?></a></span>
                 <span><strong>最新章节:</strong><?php echo $doc->last_chapter; ?></span>
                 <span><strong>字数:</strong><?php echo $doc->size; ?></span>
                 <span><strong>状态:</strong><?php echo $doc->state; ?></span>
