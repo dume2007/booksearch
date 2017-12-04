@@ -19,14 +19,13 @@
 </head>
 <!-- search.tpl Books 搜索模板 -->  
 <body style="background-color:#9fc383;">
-<div class="container">
+<div class="container-fluid">
   <div class="row">
     <!-- begin search result -->
-    
-            
+         
       <!-- result doc list -->
       <dl class="result-list">
-        <dt><h1 id="title">《<?php echo $data['title'];?>》<?php echo $data['curr'];?></h1></dt>
+        <dt><h1 id="title" style="text-align: center;font-size: 100px;">《<?php echo $data['title'];?>》<?php echo $data['curr'];?></h1></dt>
         <dd>
           <div id="body" style="line-height:60px;font-size:38px;">加载中...</div>
           <?php 
