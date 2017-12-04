@@ -24,7 +24,7 @@
     <!-- begin search result -->      
       <!-- result doc list -->
       <dl class="result-list">
-        <dt><h1 id="title" style="text-align: center;font-size: 85px;margin: 40px; padding-bottom: 40px;border-bottom: 1px solid #91b965">《<?php echo $data['title'];?>》<?php echo $data['curr'];?></h1></dt>
+        <dt><h1 id="title" style="text-align: center;font-size: 2.5em;margin: 40px; padding-bottom: 40px;border-bottom: 1px solid #91b965">《<?php echo $data['title'];?>》<?php echo $data['curr'];?></h1></dt>
         <dd>
           <div id="body">加载中...</div>
           <?php 
