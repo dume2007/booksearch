@@ -1,6 +1,6 @@
 <?php
-include_once('../include/config.php');
-include_once('../include/Db.class.php');
+include_once('./include/config.php');
+include_once('./include/Db.class.php');
 
 $model = new Db;
 
