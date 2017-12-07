@@ -1,27 +1,33 @@
 <?php
-$redis = new Redis();  
-$ret = $redis->connect("localhost", "6379");  //php客户端设置的ip及端口
-$redis->auth('dc0623');
-$redis->select(2);
+include_once('./include/config.php');
+include_once('./include/Db.class.php');
+$model = new Db;
 
 $q = $_GET['q'];
-$book = $redis->get('books:'.$q);
+$q = preg_replace('/[^\w]+/i', '', $q);
+
+$book = $model->find('book', "md5id='{$q}'");
 if(empty($book)) {
     die('404 Not Found');
 }
 
 $id = $_GET['id'];
-$data = json_decode($book, true);
+$id = preg_replace('/[^\w]+/i', '', $id);
+
+//查找章节
+$chapter = $model->find('book_chapter', "md5url='{$id}'");
+if(empty($chapter)) {
+    die('404 Not Found');
+}
 
 //查找上下章
-$total = count($data['urls']);
-foreach ($data['urls'] as $k=>$url) {
-    $md5url = md5($url);
-    if($md5url == $id) {
-        $data['curr'] = $data['titles'][$k];
-        $data['pre'] = $k>0 ? [md5($data['urls'][$k-1]), $data['titles'][$k-1]] : [];
-        $data['next'] = $k<$total ? [md5($data['urls'][$k+1]), $data['titles'][$k+1]] : [];
-        break;
+$relates = $model->query("select * from book_chapter where book_id='".$book['id']."' and id<".$chapter['id']." order by id desc limit 1 union select * from book_chapter where book_id='".$book['id']."' and id>".$chapter['id']." order by id asc limit 2");
+foreach ($relates as $item) {
+    if($item['id'] < $chapter['id']) {
+        $data['pre'] = [md5($data['urls'][$k-1]), $data['titles'][$k-1]];
+    }
+    elseif($item['id'] > $chapter['id']) {
+        $data['next'] = [md5($data['urls'][$k+1]), $data['titles'][$k+1]];
     }
 }
 

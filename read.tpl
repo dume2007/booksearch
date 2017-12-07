@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title><?php echo $data['curr'];?>《<?php echo $data['title'];?>》 - Books 搜索 - Powered by 东城狗狗搜索</title>
+<title><?php echo $chapter['title'];?>《<?php echo $book['title'];?>》 - Books 搜索 - Powered by 东城狗狗搜索</title>
 <meta http-equiv="keywords" content="Fulltext Search Engine Books 东城狗狗搜索" />
 <meta http-equiv="description" content="Fulltext Search for Books, Powered by 东城狗狗搜索/WEB2.0 " />
 <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
@@ -14,10 +14,10 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-        <h1 id="title" style="margin: 40px 0; padding-bottom: 20px;border-bottom: 1px solid #91b965">《<?php echo $data['title'];?>》<?php echo $data['curr'];?></h1>
+        <h1 id="title" style="margin: 40px 0; padding-bottom: 20px;border-bottom: 1px solid #91b965">《<?php echo $book['title'];?>》<?php echo $chapter['title'];?></h1>
         <div id="body">加载中...</div>
         <?php 
-        echo '<p><b>回到目录：</b><a href="/book.php?q='.$q.'">'.$data['title'].'</a>， <b>返回首页：</b><a href="/">搜索首页</a></p>';
+        echo '<p><b>回到目录：</b><a href="/book.php?q='.$q.'">'.$book['title'].'</a>， <b>返回首页：</b><a href="/">搜索首页</a></p>';
         if($data['pre']) {
           echo '<p><b>上一章：</b><a id="pre_link" href="/read.php?q='.$q.'&id='.$data['pre'][0].'">'.$data['pre'][1].'</a></p>';
         }
