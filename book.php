@@ -5,7 +5,7 @@ include_once('./include/Db.class.php');
 $model = new Db;
 
 $q = $_GET['q'];
-$q = preg_replace('/(^\w)/i', '', $q);
+$q = preg_replace('/[^\w]+/i', '', $q);
 $book = $model->find('book', "md5id='{$q}'");
 if(empty($book)) {
     die('404 Not Found');

@@ -18,7 +18,7 @@
         <div id="body">
         <?php 
         foreach($chapters as $item){
-            echo '<p class="col-md-4"><a href="/read.php?q='.$q.'&id='.$item['url'].'">'.$item['title'].'</a></p>';
+            echo '<p class="col-md-4"><a href="/read.php?q='.$q.'&id='.$item['md5url'].'">'.$item['title'].'</a></p>';
         }
         ?>
         </div>
