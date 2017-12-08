@@ -21,7 +21,7 @@ if(empty($chapter)) {
 }
 
 //查找上下章
-$sql = "(select md5url,title from book_chapter where book_id='".$book['id']."' and id<".$chapter['id']." order by id desc limit 1) union (select md5url,title from book_chapter where book_id='".$book['id']."' and id>".$chapter['id']." order by id asc limit 1)";
+$sql = "(select id,page_id,md5url,title from book_chapter where book_id='".$book['id']."' and id<".$chapter['id']." order by id desc limit 1) union (select id,page_id,md5url,title from book_chapter where book_id='".$book['id']."' and id>".$chapter['id']." order by id asc limit 1)";
 $relates = $model->query($sql);
 foreach ($relates as $item) {
     if($item['id'] < $chapter['id']) {
