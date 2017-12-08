@@ -16,7 +16,7 @@
     <div class="col-md-12">
         <h1 id="title" style="margin: 40px 0; padding-bottom: 20px;border-bottom: 1px solid #91b965">《<?php echo $book['title'];?>》<?php echo $chapter['title'];?></h1>
         <div id="body">加载中...</div>
-        <br/><br/>
+        <br/>
         <?php 
         echo '<p><b>回到目录：</b><a href="/book.php?q='.$q.'">'.$book['title'].'</a>， <b>返回首页：</b><a href="/">搜索首页</a></p>';
         if($data['pre']) {
