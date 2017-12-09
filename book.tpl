@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>在线阅读《<?php echo $book['title'];?>》 - Books 搜索 - Powered by 东城狗狗搜索</title>
-<meta http-equiv="keywords" content="Fulltext Search Engine Books 东城狗狗搜索" />
-<meta http-equiv="description" content="Fulltext Search for Books, Powered by 东城狗狗搜索/WEB2.0 " />
+<title>在线阅读《<?php echo $book['title'];?>》 - 狗狗搜索资源 - Powered by 东城狗狗搜索</title>
+<meta http-equiv="keywords" content="在线阅读《<?php echo $book['title'];?>》,狗狗搜索资源" />
+<meta http-equiv="description" content="在线阅读《<?php echo $book['title'];?>》 - 狗狗搜索资源" />
 <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
 </head>
 <!-- search.tpl Books 搜索模板 -->  

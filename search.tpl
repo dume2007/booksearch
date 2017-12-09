@@ -4,9 +4,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=<?php echo $oe; ?>" />
 <meta name="googlebot" content="index,noarchive,nofollow,noodp" />
 <meta name="robots" content="index,nofollow,noarchive,noodp" />
-<title><?php if (!empty($q)) echo "搜索：" . strip_tags($q) . " - "; ?>Books 搜索 - Powered by 东城狗狗搜索</title>
-<meta http-equiv="keywords" content="Fulltext Search Engine Books 东城狗狗搜索" />
-<meta http-equiv="description" content="Fulltext Search for Books, Powered by 东城狗狗搜索/WEB2.0 " />
+<title><?php if (!empty($q)) echo "搜索：" . strip_tags($q) . " - "; ?>狗狗搜索资源 - Powered by 东城狗狗搜索</title>
+<meta http-equiv="keywords" content="东城狗狗搜索,狗狗搜索小说,狗狗搜索数据,狗狗搜索在线阅读" />
+<meta http-equiv="description" content="东城狗狗搜索,狗狗搜索小说,狗狗搜索数据,狗狗搜索在线阅读" />
 <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
 <link rel="stylesheet" href="http://apps.bdimg.com/libs/jqueryui/1.9.2/themes/redmond/jquery-ui.css" type="text/css" media="all" />
