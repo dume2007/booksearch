@@ -4,9 +4,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=<?php echo $oe; ?>" />
 <meta name="googlebot" content="index,noarchive,nofollow,noodp" />
 <meta name="robots" content="index,nofollow,noarchive,noodp" />
-<title><?php if (!empty($q)) echo "搜索：" . strip_tags($q) . " - "; ?狗狗搜索资源 - Powered by 东城狗狗搜索</title>
-<meta http-equiv="keywords" content="<?php if (!empty($q)) echo "搜索：" . strip_tags($q) . " - "; ?狗狗搜索资源 - Powered by 东城狗狗搜索" />
-<meta http-equiv="description" content="<?php if (!empty($q)) echo "搜索：" . strip_tags($q) . " - "; ?狗狗搜索资源 - Powered by 东城狗狗搜索" />
+<title><?php if (!empty($q)) echo "搜索：" . strip_tags($q) . " - "; ?>狗狗搜索资源 - Powered by 东城狗狗搜索</title>
+<meta http-equiv="keywords" content="<?php if (!empty($q)) echo "搜索：" . strip_tags($q) . " - "; ?>狗狗搜索资源 - Powered by 东城狗狗搜索" />
+<meta http-equiv="description" content="<?php if (!empty($q)) echo "搜索：" . strip_tags($q) . " - "; ?>狗狗搜索资源 - Powered by 东城狗狗搜索" />
 <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
 <link rel="stylesheet" href="http://apps.bdimg.com/libs/jqueryui/1.9.2/themes/redmond/jquery-ui.css" type="text/css" media="all" />
