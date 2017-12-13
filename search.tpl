@@ -108,7 +108,7 @@ var _hmt = _hmt || [];
       <dl class="result-list">
         <?php foreach ($docs as $doc): ?>
         <dt>
-          <a href="/?q=<?php echo urlencode($doc->title); ?>&f=title&s=relevance&i=1" target="_blank"><h4><?php echo $doc->rank(); ?>. <?php echo $search->highlight(strip_tags($doc->title)); ?> <small>[<?php echo $doc->percent(); ?>%]</small></h4></a>          
+          <a href="/?q=<?php echo urlencode($doc->index); ?>&f=index&s=relevance&m=no&i=1" target="_blank"><h4><?php echo $doc->rank(); ?>. <?php echo $search->highlight(strip_tags($doc->title)); ?> <small>[<?php echo $doc->percent(); ?>%]</small></h4></a>          
         </dt>
         <dd>
           <p><?php echo $search->highlight(strip_tags($doc->description)); ?></p>
