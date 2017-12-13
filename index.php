@@ -50,6 +50,7 @@ if (!empty($oe) && strcasecmp($oe, 'UTF-8')) {
 }
 
 // recheck request parameters
+$m = 'yes';
 $q = get_magic_quotes_gpc() ? stripslashes($q) : $q;
 $f = empty($f) ? '_all' : $f;
 ${'m_check'} = ($m == 'yes' ? ' checked' : '');
