@@ -160,29 +160,21 @@ var _hmt = _hmt || [];
   </div>
 </div>
 
-<!-- hot search -->
-<?php if (count($hot) > 0): ?>
-<section class="link">
-  <div class="container">
-    <h4>热门搜索:</h4>
-    <p>
-      <?php foreach($hot as $word => $freq): ?>
-      <span><a href="<?php echo $_SERVER['SCRIPT_NAME'] . '?q=' . urlencode($word); ?>"><?php echo $word; ?></a></span>
-      <?php endforeach; ?>	
-    </p>
-  </div>
-</section>
-<?php endif; ?>
-
 <!-- related query -->
 <?php if (count($related) > 0): ?>
 <section class="link">
   <div class="container">
     <h4>相关搜索:</h4>
     <p>
-      <?php foreach ($related as $word): ?>
+      <?php foreach ($related as $word): 
+        $word2 = trim(preg_replace('/\w+/', '', $word));
+        if(empty($word2) && strlen($word) > 12) {
+          continue;
+        }
+      ?>
       <span><a href="<?php echo $_SERVER['SCRIPT_NAME'] . '?q=' . urlencode($word); ?>"><?php echo $word; ?></a></span>
-      <?php endforeach; ?>	
+      <?php endforeach; ?>
+      <span><a href="<?php echo $_SERVER['SCRIPT_NAME'] . '?st=online&q=' . urlencode($title); ?>"><?php echo $title; ?>在线阅读</a></span>
 	</p>
   </div>
 </section>
