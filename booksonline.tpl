@@ -117,9 +117,9 @@ var _hmt = _hmt || [];
           <p class="field-info text-error">
                 <span><strong>来源:</strong><?php echo getFrom($doc->url); ?></span>
                 <span><strong>作者:</strong><a href="/?st=online&q=<?php echo $doc->author;?>&f=author&s=relevance"><?php echo $doc->author; ?></a></span>
+                <span><strong>下载进度:</strong><?php echo $local_count.'/'.intval($doc->urls_count); ?></span>
                 <span><strong>状态:</strong><?php echo $doc->state; ?></span>
                 <span><strong>字数:</strong><?php echo $doc->size; ?></span>
-                <span><strong>下载进度:</strong><?php echo $local_count.'/'.intval($doc->urls_count); ?></span>
                 <span><strong>最新章节:</strong><?php echo $doc->last_chapter; ?></span>
                 <span><strong>更新时间:</strong><?php echo date('Y-m-d', $doc->updatetime); ?></span>
           </p>
