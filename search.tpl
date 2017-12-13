@@ -17,6 +17,15 @@
 <link rel="stylesheet" type="text/css" href="css/bootstrap-ie6.css" />
 <link rel="stylesheet" type="text/css" href="css/ie.css" />
 <![endif]-->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?d8fb9a8b96acc1cbe4f380fdf3fe0354";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
 </head>
 <!-- search.tpl Books 搜索模板 -->	
 <body>
