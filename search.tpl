@@ -17,6 +17,15 @@
 <link rel="stylesheet" type="text/css" href="css/bootstrap-ie6.css" />
 <link rel="stylesheet" type="text/css" href="css/ie.css" />
 <![endif]-->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?d8fb9a8b96acc1cbe4f380fdf3fe0354";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
 </head>
 <!-- search.tpl Books 搜索模板 -->	
 <body>
@@ -99,7 +108,7 @@
       <dl class="result-list">
         <?php foreach ($docs as $doc): ?>
         <dt>
-          <a href="/?q=<?php echo urlencode($doc->title); ?>&f=title&s=relevance&i=1" target="_blank"><h4><?php echo $doc->rank(); ?>. <?php echo $search->highlight(strip_tags($doc->title)); ?> <small>[<?php echo $doc->percent(); ?>%]</small></h4></a>          
+          <a href="/?q=<?php echo urlencode($doc->index); ?>&f=index&s=relevance&m=no&i=1" target="_blank"><h4><?php echo $doc->rank(); ?>. <?php echo $search->highlight(strip_tags($doc->title)); ?> <small>[<?php echo $doc->percent(); ?>%]</small></h4></a>          
         </dt>
         <dd>
           <p><?php echo $search->highlight(strip_tags($doc->description)); ?></p>
@@ -139,9 +148,15 @@
   <div class="container">
     <h4>热门搜索:</h4>
     <p>
-      <?php foreach($hot as $word => $freq): ?>
+      <?php foreach($hot as $word => $freq): 
+        $word2 = trim(preg_replace('/\w+/', '', $word));
+        if(empty($word2) && strlen($word) > 12) {
+          continue;
+        }
+      ?>
       <span><a href="<?php echo $_SERVER['SCRIPT_NAME'] . '?q=' . urlencode($word); ?>"><?php echo $word; ?></a></span>
       <?php endforeach; ?>	
+      <span><a href="<?php echo $_SERVER['SCRIPT_NAME'] . '?st=online&q=' . urlencode($q); ?>"><?php echo $q; ?>在线阅读</a></span>
     </p>
   </div>
 </section>

@@ -50,6 +50,7 @@ if (!empty($oe) && strcasecmp($oe, 'UTF-8')) {
 }
 
 // recheck request parameters
+$m = (empty($m) || $m == 'yes') ? 'yes' : $m;
 $q = get_magic_quotes_gpc() ? stripslashes($q) : $q;
 $f = empty($f) ? '_all' : $f;
 ${'m_check'} = ($m == 'yes' ? ' checked' : '');
@@ -61,7 +62,10 @@ if ($f == 'index') {
 	$f__all = ' checked';
 }
 $q = $q == 'all' ? '*' : $q;
-$s = empty($s) ? 'addtime_DESC' : $s;
+$s = empty($s) ? 'relevance' : $s;
+if($s != 'relevance' && $st == 'online') {
+	$s = str_replace('addtime', 'indextime', $s);
+}
 
 // base url
 $bu = $_SERVER['SCRIPT_NAME'] . '?q=' . urlencode($q) . "&st={$st}" . '&m=' . $m . '&f=' . $f . '&s=' . $s . $eu;

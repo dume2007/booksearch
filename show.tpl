@@ -18,6 +18,15 @@
 <link rel="stylesheet" type="text/css" href="css/bootstrap-ie6.css" />
 <link rel="stylesheet" type="text/css" href="css/ie.css" />
 <![endif]-->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?d8fb9a8b96acc1cbe4f380fdf3fe0354";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
 </head>
 <!-- search.tpl Books 搜索模板 -->	
 <body>
@@ -151,29 +160,21 @@
   </div>
 </div>
 
-<!-- hot search -->
-<?php if (count($hot) > 0): ?>
-<section class="link">
-  <div class="container">
-    <h4>热门搜索:</h4>
-    <p>
-      <?php foreach($hot as $word => $freq): ?>
-      <span><a href="<?php echo $_SERVER['SCRIPT_NAME'] . '?q=' . urlencode($word); ?>"><?php echo $word; ?></a></span>
-      <?php endforeach; ?>	
-    </p>
-  </div>
-</section>
-<?php endif; ?>
-
 <!-- related query -->
 <?php if (count($related) > 0): ?>
 <section class="link">
   <div class="container">
     <h4>相关搜索:</h4>
     <p>
-      <?php foreach ($related as $word): ?>
+      <?php foreach ($related as $word): 
+        $word2 = trim(preg_replace('/\w+/', '', $word));
+        if(empty($word2) && strlen($word) > 12) {
+          continue;
+        }
+      ?>
       <span><a href="<?php echo $_SERVER['SCRIPT_NAME'] . '?q=' . urlencode($word); ?>"><?php echo $word; ?></a></span>
-      <?php endforeach; ?>	
+      <?php endforeach; ?>
+      <span><a href="<?php echo $_SERVER['SCRIPT_NAME'] . '?st=online&q=' . urlencode($title); ?>"><?php echo $title; ?>在线阅读</a></span>
 	</p>
   </div>
 </section>
