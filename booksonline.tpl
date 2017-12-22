@@ -8,6 +8,7 @@
 <meta http-equiv="keywords" content="<?php if (!empty($q)) echo "搜索：" . strip_tags($q) . " - "; ?>狗狗搜索资源 - Powered by 东城狗狗搜索" />
 <meta http-equiv="description" content="<?php if (!empty($q)) echo "搜索：" . strip_tags($q) . " - "; ?>狗狗搜索资源 - Powered by 东城狗狗搜索" />
 <link rel="stylesheet" href="http://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.min.css" />
+<link rel="stylesheet" href="./css/typeahead.css" />
 <style type="text/css">
 @media (min-width: 768px) {
   .form-inline .form-control {width: 400px;}
@@ -186,7 +187,6 @@ $(function(){
 
     $('#inputQ').typeahead(null, {
       name: 'best-pictures',
-      display: 'value',
       source: bestPictures
     });
 
