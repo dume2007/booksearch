@@ -26,7 +26,7 @@ var _hmt = _hmt || [];
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-        <h1 id="title" style="margin: 40px 0; padding-bottom: 20px;border-bottom: 1px solid #91b965">《<?php echo $book['title'];?>》<?php echo $chapter['title'];?></h1>
+        <h1 id="title" style="margin: 10px 0; padding-bottom: 20px;border-bottom: 1px solid #91b965">《<?php echo $book['title'];?>》<?php echo $chapter['title'];?></h1>
         <div id="body">加载中...</div>
         <br/>
         <?php 
