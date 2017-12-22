@@ -183,11 +183,12 @@ $(function(){
         if ($(this).val() == '' || $(this).val() == $(this).attr('title')) {
             $(this).addClass('tips').val($(this).attr('title'));
         }
-    }).blur().autocomplete({
-        'source':'suggest.php',
-        'select':function(ev,ui) {
-            $('#inputQ').val(ui.item.label);
-            $('#q-form').submit();
+    }).blur().typeahead({
+        source: function (query, process) {
+            var parameter = {query: query};
+            $.get('suggest.php', parameter, function (data) {
+                process(data);
+            });
         }
     });
     // submit check
