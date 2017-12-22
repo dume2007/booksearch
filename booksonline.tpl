@@ -175,14 +175,19 @@ var _hmt = _hmt || [];
 <script type="text/javascript">
 $(function(){
     // input tips
-    $('#inputQ').typeahead({
-        source: function (query, process) {
-            var parameter = {query: query};
-            $.get('suggest.php', parameter, function (data) {
-                process(data);
-            });
-        }
+    var suggestSearch = new Bloodhound({
+      datumTokenizer: Bloodhound.tokenizers.whitespace,
+      queryTokenizer: Bloodhound.tokenizers.whitespace,
+      remote: {
+        url: 'suggest.php?term=%QUERY'
+      }
     });
+
+    $('#inputQ').typeahead(null, {
+      name: 'best-suggest',
+      source: suggestSearch
+    });
+
     // submit check
     $('#q-form').submit(function(){
         var $input = $('#inputQ');
