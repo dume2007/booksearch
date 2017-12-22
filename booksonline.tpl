@@ -14,13 +14,22 @@
   .form-inline .form-control {width: 400px;}
 }
 </style>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?d8fb9a8b96acc1cbe4f380fdf3fe0354";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
 </head>
 <!-- search.tpl Books 搜索模板 -->  
 <body style="background-color:#9fc383;color: #383838;">
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-        <h1 style="margin: 40px 0;padding-bottom: 20px; border-bottom: 1px solid #91b965; color: #1773a0;font-weight: bold;"><span class="glyphicon glyphicon-phone" aria-hidden="true"></span> 东城狗狗搜索</h1>
+        <h1 style="margin: 40px 0;padding-bottom: 20px; border-bottom: 1px solid #91b965; color: #1773a0;font-weight: bold;"><span class="glyphicon glyphicon-phone" aria-hidden="true"></span>东城狗狗搜索 <small>在线阅读</small></h1>
     </div>
     <div class="col-md-12">
       <form class="form-inline" id="q-form">
@@ -132,6 +141,7 @@
         <span><a href="<?php echo $_SERVER['SCRIPT_NAME'] . '?st=online&q=' . urlencode($word); ?>"><?php echo $word; ?></a></span>
         <?php endforeach; ?>
       </p>
+      <span><a href="<?php echo $_SERVER['SCRIPT_NAME'] . '?q=' . urlencode($q); ?>"><?php echo $q; ?>电子书下载</a></span>
     </div>
   </div>
   <?php endif; ?>
