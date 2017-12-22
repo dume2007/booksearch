@@ -7,7 +7,7 @@
 <title><?php echo $chapter['title'];?>《<?php echo $book['title'];?>》 - 狗狗搜索资源 - Powered by 东城狗狗搜索</title>
 <meta http-equiv="keywords" content="<?php echo $chapter['title'];?>《<?php echo $book['title'];?>》 - 狗狗搜索资源 - Powered by 东城狗狗搜索" />
 <meta http-equiv="description" content="<?php echo $chapter['title'];?>《<?php echo $book['title'];?>》 - 狗狗搜索资源 - Powered by 东城狗狗搜索" />
-<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+<link rel="stylesheet" href="http://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.min.css" />
 <script>
 var _hmt = _hmt || [];
 (function() {
@@ -20,6 +20,34 @@ var _hmt = _hmt || [];
 </head>
 <!-- search.tpl Books 搜索模板 -->  
 <body style="background-color:#9fc383;color: #383838;">
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/"><span class="glyphicon glyphicon-phone" aria-hidden="true"></span> 东城狗狗搜索</a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+      <form class="navbar-form navbar-left" action="/">
+        <div class="form-group">
+          <input type="text" name="q" class="form-control" placeholder="Search">
+        </div>
+        <input type="hidden" name="st" value="online">
+        <button type="submit" class="btn btn-default">搜一下</button>
+      </form>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/">首页</a></li>
+        <li><a href="/">电子书</a></li>
+        <li><a href="/?st=online">在线阅读</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
 <div class="container">
   <div class="row">
     <div class="col-md-12">
@@ -47,6 +75,7 @@ var _hmt = _hmt || [];
 </div>
 
 <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/1.6.2/jquery.min.js"></script>
+<script src="http://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <script type="text/javascript">
 var g_b = 0;
 function _body(yurl) {
