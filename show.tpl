@@ -26,8 +26,6 @@ var _hmt = _hmt || [];
 </head>
 <!-- search.tpl Books 搜索模板 -->  
 <body style="background-color:#dee0dc;color: #383838;">
-<?php include dirname(__FILE__) . '/nav.tpl';?>
-
 <div class="container">
   <div class="row">
     <div class="col-md-12">
