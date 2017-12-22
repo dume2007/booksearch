@@ -7,7 +7,7 @@
 <title>在线阅读《<?php echo $book['title'];?>》 - 狗狗搜索资源 - Powered by 东城狗狗搜索</title>
 <meta http-equiv="keywords" content="在线阅读《<?php echo $book['title'];?>》,狗狗搜索资源" />
 <meta http-equiv="description" content="在线阅读《<?php echo $book['title'];?>》 - 狗狗搜索资源" />
-<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+<link rel="stylesheet" href="http://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.min.css" />
 <script>
 var _hmt = _hmt || [];
 (function() {
@@ -25,16 +25,16 @@ var _hmt = _hmt || [];
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
+        <span class="icon-bar">1</span>
+        <span class="icon-bar">2</span>
+        <span class="icon-bar">3</span>
       </button>
-      <a class="navbar-brand" href="#">东城狗狗搜索</a>
+      <span class="glyphicon glyphicon-phone" aria-hidden="true"></span><a class="navbar-brand" href="/">东城狗狗搜索</a>
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
       <form class="navbar-form navbar-left">
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
+          <input type="text" name="q" class="form-control" placeholder="Search">
         </div>
         <button type="submit" class="btn btn-default">搜一下</button>
       </form>
