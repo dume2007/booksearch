@@ -56,9 +56,9 @@ var _hmt = _hmt || [];
         <?php 
         foreach($chapters as $item){
             echo '<p class="col-md-4"><a href="/read.php?q='.$q.'&id='.$item['md5url'].'">'.$item['title'].'</a></p>';
+        }
         if(empty($book)) {
             echo '<div class="alert alert-warning" role="alert">抱歉，该小说章节尚未入库!</div>';
-        }
         }
         ?>
         </div>
