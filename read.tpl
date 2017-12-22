@@ -8,6 +8,7 @@
 <meta http-equiv="keywords" content="<?php echo $chapter['title'];?>《<?php echo $book['title'];?>》 - 狗狗搜索资源 - Powered by 东城狗狗搜索" />
 <meta http-equiv="description" content="<?php echo $chapter['title'];?>《<?php echo $book['title'];?>》 - 狗狗搜索资源 - Powered by 东城狗狗搜索" />
 <link rel="stylesheet" href="http://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.min.css" />
+<style type="text/css">#body{font-size: 1.4em;}</style>
 <script>
 var _hmt = _hmt || [];
 (function() {
