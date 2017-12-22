@@ -20,7 +20,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-        <h1 style="margin: 40px 0;padding-bottom: 20px; border-bottom: 1px solid #91b965; color: #1773a0;font-weight: bold;">东城狗狗搜索</h1>
+        <h1 style="margin: 40px 0;padding-bottom: 20px; border-bottom: 1px solid #91b965; color: #1773a0;font-weight: bold;"><span class="glyphicon glyphicon-phone" aria-hidden="true"></span> 东城狗狗搜索</h1>
     </div>
     <div class="col-md-12">
       <form class="form-inline" id="q-form">
@@ -36,7 +36,7 @@
         </div>
         <input type="hidden" name="f" value="_all" />
         <input type="hidden" name="m" value="yes" />
-        <button type="submit" class="btn btn-primary">搜索</button>
+        <button type="submit" class="btn btn-primary">搜一下</button>
       </form>
     </div>
   </div>
