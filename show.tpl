@@ -151,25 +151,6 @@ var _hmt = _hmt || [];
   </div>
   <?php endif; ?>
 
-  <!-- related query -->
-  <?php if (count($related) > 0): ?>
-  <div class="row">
-    <div class="col-md-12">
-      <h4>相关搜索:</h4>
-      <p>
-        <?php foreach ($related as $word): 
-          $word2 = trim(preg_replace('/\w+/', '', $word));
-          if(empty($word2) && strlen($word) > 12) {
-            continue;
-          }
-        ?>
-        <span><a href="<?php echo $_SERVER['SCRIPT_NAME'] . '?q=' . urlencode($word); ?>"><?php echo $word; ?></a></span>
-        <?php endforeach; ?>  
-      </p>
-    </div>
-  </div>
-  <?php endif; ?>
-
   <!-- footer -->
   <footer>
       <p>(C)opyright 2011 - Books search - 页面处理总时间：<?php printf('%.4f', $total_cost); ?>秒<br>
