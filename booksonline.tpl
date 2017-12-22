@@ -175,15 +175,7 @@ var _hmt = _hmt || [];
 <script type="text/javascript">
 $(function(){
     // input tips
-    $('#inputQ').focus(function(){
-        if ($(this).val() == $(this).attr('title')) {
-            $(this).val('').removeClass('tips');
-        }
-    }).blur(function(){
-        if ($(this).val() == '' || $(this).val() == $(this).attr('title')) {
-            $(this).addClass('tips').val($(this).attr('title'));
-        }
-    }).blur().typeahead({
+    $('#inputQ').typeahead({
         source: function (query, process) {
             var parameter = {query: query};
             $.get('suggest.php', parameter, function (data) {
