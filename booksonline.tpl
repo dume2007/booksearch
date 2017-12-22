@@ -44,7 +44,7 @@ var _hmt = _hmt || [];
         </div>
         <div class="form-group">
           <label class="sr-only" for="inputQ">关键词</label>
-          <input type="text" name="q" class="form-control" id="inputQ" title="输入任意关键词皆可搜索" placeholder="输入任意关键词皆可搜索" value="<?php echo htmlspecialchars($q); ?>" />
+          <input type="text" name="q" class="typeahead form-control" id="inputQ" title="输入任意关键词皆可搜索" placeholder="输入任意关键词皆可搜索" value="<?php echo htmlspecialchars($q); ?>" />
         </div>
         <input type="hidden" name="f" value="_all" />
         <input type="hidden" name="m" value="yes" />
