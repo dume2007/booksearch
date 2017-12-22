@@ -87,11 +87,11 @@
       ?>
       <div class="panel panel-default">
         <div class="panel-heading">
-          <a href="/book.php?q=<?php echo urlencode($doc->md5id); ?>" target="_blank"><h4><?php echo $doc->rank(); ?>. <?php echo $search->highlight(strip_tags($doc->title)); ?> <small>[<?php echo $doc->percent(); ?>%]</small></h4></a>
+          <a href="/book.php?q=<?php echo urlencode($doc->md5id); ?>"><h4><?php echo $doc->rank(); ?>. <?php echo $search->highlight(strip_tags($doc->title)); ?> <small>[<?php echo $doc->percent(); ?>%]</small></h4></a>
         </div>
         <div class="panel-body">
           <p><?php echo $search->highlight(strip_tags($doc->description)); ?></p>
-          <p class="field-info text-error">
+          <p class="field-info text-error"><small>
             <span><strong>下载进度:</strong><?php echo $local_count.'/'.intval($doc->urls_count); ?></span>
             <span><strong>作者:</strong><a href="/?st=online&q=<?php echo $doc->author;?>&f=author&s=relevance"><?php echo $doc->author; ?></a></span>
             <span><strong>最新章节:</strong><?php echo $doc->last_chapter; ?></span>
@@ -99,7 +99,7 @@
             <!--<span><strong>状态:</strong><?php echo $doc->state; ?></span>-->
             <!--<span><strong>来源:</strong><?php echo getFrom($doc->url); ?></span>-->
             <span><strong>更新时间:</strong><?php echo date('Y-m-d', $doc->updatetime); ?></span>
-          </p>
+          </small></p>
         </div>
       </div>
       <?php endforeach; ?>
