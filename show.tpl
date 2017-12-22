@@ -41,7 +41,7 @@ var _hmt = _hmt || [];
         </div>
         <div class="form-group">
           <label class="sr-only" for="inputQ">关键词</label>
-          <input type="text" name="q" class="form-control" id="inputQ" title="输入任意关键词皆可搜索" placeholder="输入任意关键词皆可搜索" value="<?php echo htmlspecialchars($q); ?>" />
+          <input type="text" name="q" class="form-control" id="inputQ" title="输入任意关键词皆可搜索" placeholder="输入任意关键词皆可搜索" value="<?php echo htmlspecialchars($title); ?>" />
         </div>
         <input type="hidden" name="f" value="_all" />
         <input type="hidden" name="m" value="yes" />
@@ -103,8 +103,7 @@ var _hmt = _hmt || [];
           }
           ?>
           <p><?php echo $doc->description; ?></p>
-          <p class="field-info text-error">
-            <!--<span><strong>Index:</strong><?php echo htmlspecialchars($doc->index); ?></span>-->
+          <p class="field-info text-error"><ul>
             <li><strong>分类:</strong> <a href="/?q=<?php echo $doc->classname;?>&f=classname&s=relevance"><?php echo $doc->classname; ?></a></li>
             <li><strong>栏目:</strong> <a href="/?q=<?php echo $doc->typename;?>&f=typename&s=relevance"><?php echo $doc->typename; ?></a></li>
             <li><strong>作者:</strong> <a href="/?q=<?php echo $doc->author;?>&f=author&s=relevance"><?php echo $doc->author; ?></a></li>
@@ -122,8 +121,7 @@ var _hmt = _hmt || [];
                 }
               ?>
             </li>
-            <!--<span><strong>Indextime:</strong><?php echo htmlspecialchars($doc->indextime); ?></span>-->
-          </p>
+          </ul></p>
         </div>
       </div>
       <?php endif; ?>
