@@ -140,8 +140,8 @@ var _hmt = _hmt || [];
         <?php foreach($hot as $word => $freq): ?>
         <span><a href="<?php echo $_SERVER['SCRIPT_NAME'] . '?st=online&q=' . urlencode($word); ?>"><?php echo $word; ?></a></span>
         <?php endforeach; ?>
+        <span><a href="<?php echo $_SERVER['SCRIPT_NAME'] . '?q=' . urlencode($q); ?>"><?php echo $q; ?>电子书下载</a></span>
       </p>
-      <span><a href="<?php echo $_SERVER['SCRIPT_NAME'] . '?q=' . urlencode($q); ?>"><?php echo $q; ?>电子书下载</a></span>
     </div>
   </div>
   <?php endif; ?>
