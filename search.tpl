@@ -29,7 +29,7 @@ var _hmt = _hmt || [];
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-        <h1 style="margin: 40px 0;padding-bottom: 20px; border-bottom: 1px solid #91b965; color: #1773a0;font-weight: bold;"><span class="glyphicon glyphicon-phone" aria-hidden="true"></span>东城狗狗搜索 <small>电子书下载</small></h1>
+        <h1 style="margin: 40px 0;padding-bottom: 20px; border-bottom: 1px solid #91b965; color: #1773a0;font-weight: bold;"><span class="glyphicon glyphicon-phone" aria-hidden="true"></span>东城狗狗搜索 <small>电子书</small></h1>
     </div>
     <div class="col-md-12">
       <form class="form-inline" id="q-form">
@@ -96,7 +96,7 @@ var _hmt = _hmt || [];
       ?>
       <div class="panel panel-default">
         <div class="panel-heading">
-          <a href="/?q=<?php echo urlencode($doc->index); ?>&f=index&s=relevance&m=no&i=1" target="_blank"><h4><?php echo $doc->rank(); ?>. <?php echo $search->highlight(strip_tags($doc->title)); ?> <small>[<?php echo $doc->percent(); ?>%]</small></h4></a>     
+          <a href="/?q=<?php echo urlencode($doc->index); ?>&f=index&s=relevance&m=no&i=1"><h4><?php echo $doc->rank(); ?>. <?php echo $search->highlight(strip_tags($doc->title)); ?> <small>[<?php echo $doc->percent(); ?>%]</small></h4></a>     
         </div>
         <div class="panel-body">
           <p><?php echo $search->highlight(strip_tags($doc->description)); ?></p>
@@ -137,7 +137,12 @@ var _hmt = _hmt || [];
     <div class="col-md-12">
       <h4>热门搜索:</h4>
       <p>
-        <?php foreach($hot as $word => $freq): ?>
+        <?php foreach($hot as $word => $freq): 
+          $word2 = trim(preg_replace('/\w+/', '', $word));
+          if(empty($word2) && strlen($word) > 12) {
+            continue;
+          }
+        ?>
         <span><a href="<?php echo $_SERVER['SCRIPT_NAME'] . '?q=' . urlencode($word); ?>"><?php echo $word; ?></a></span>
         <?php endforeach; ?>
         <span><a href="<?php echo $_SERVER['SCRIPT_NAME'] . '?st=online&q=' . urlencode($q); ?>"><?php echo $q; ?>在线阅读</a></span>
