@@ -8,7 +8,6 @@
 <meta http-equiv="keywords" content="东城狗狗搜索,狗狗搜索小说,狗狗搜索数据,狗狗搜索在线阅读" />
 <meta http-equiv="description" content="东城狗狗搜索,狗狗搜索小说,狗狗搜索数据,狗狗搜索在线阅读" />
 <link rel="stylesheet" href="http://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.min.css" />
-<link rel="stylesheet" href="http://apps.bdimg.com/libs/jqueryui/1.9.2/themes/redmond/jquery-ui.css" type="text/css" media="all" />
 <style type="text/css">
 @media (min-width: 768px) {
   .form-inline .form-control {width: 400px;}
@@ -159,36 +158,6 @@ var _hmt = _hmt || [];
 </div>
 
 <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-<script type="text/javascript" src="http://apps.bdimg.com/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
 <script src="http://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-<script type="text/javascript">
-$(function(){
-    // input tips
-    $('#inputQ').focus(function(){
-        if ($(this).val() == $(this).attr('title')) {
-            $(this).val('').removeClass('tips');
-        }
-    }).blur(function(){
-        if ($(this).val() == '' || $(this).val() == $(this).attr('title')) {
-            $(this).addClass('tips').val($(this).attr('title'));
-        }
-    }).blur().autocomplete({
-        'source':'suggest.php',
-        'select':function(ev,ui) {
-            $('#inputQ').val(ui.item.label);
-            $('#q-form').submit();
-        }
-    });
-    // submit check
-    $('#q-form').submit(function(){
-        var $input = $('#inputQ');
-        if ($input.val() == $input.attr('title')) {
-            alert('请先输入关键词');
-            $input.focus();
-            return false;
-        }
-    }); 
-}); 
-</script>
 </body>
 </html>

@@ -176,36 +176,6 @@ var _hmt = _hmt || [];
 </div>
 
 <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-<script type="text/javascript" src="http://apps.bdimg.com/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
 <script src="http://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-<script type="text/javascript">
-$(function(){
-    // input tips
-    $('#inputQ').focus(function(){
-        if ($(this).val() == $(this).attr('title')) {
-            $(this).val('').removeClass('tips');
-        }
-    }).blur(function(){
-        if ($(this).val() == '' || $(this).val() == $(this).attr('title')) {
-            $(this).addClass('tips').val($(this).attr('title'));
-        }
-    }).blur().autocomplete({
-        'source':'suggest.php',
-        'select':function(ev,ui) {
-            $('#inputQ').val(ui.item.label);
-            $('#q-form').submit();
-        }
-    });
-    // submit check
-    $('#q-form').submit(function(){
-        var $input = $('#inputQ');
-        if ($input.val() == $input.attr('title')) {
-            alert('请先输入关键词');
-            $input.focus();
-            return false;
-        }
-    }); 
-}); 
-</script>
 </body>
 </html>

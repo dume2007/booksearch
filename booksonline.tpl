@@ -8,7 +8,6 @@
 <meta http-equiv="keywords" content="<?php if (!empty($q)) echo "搜索：" . strip_tags($q) . " - "; ?>狗狗搜索资源 - Powered by 东城狗狗搜索" />
 <meta http-equiv="description" content="<?php if (!empty($q)) echo "搜索：" . strip_tags($q) . " - "; ?>狗狗搜索资源 - Powered by 东城狗狗搜索" />
 <link rel="stylesheet" href="http://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.min.css" />
-<link rel="stylesheet" href="./css/typeahead.css" />
 <style type="text/css">
 @media (min-width: 768px) {
   .form-inline .form-control {width: 400px;}
@@ -171,35 +170,6 @@ var _hmt = _hmt || [];
 </div>
 
 <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-<script type="text/javascript" src="./css/typeahead.bundle.js"></script>
 <script src="http://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-<script type="text/javascript">
-$(function(){
-    // input tips
-    var bestPictures = new Bloodhound({
-      datumTokenizer: Bloodhound.tokenizers.obj.whitespace('value'),
-      queryTokenizer: Bloodhound.tokenizers.whitespace,
-      remote: {
-        url: 'suggest.php?term=%QUERY',
-        wildcard: '%QUERY'
-      }
-    });
-
-    $('#inputQ').typeahead(null, {
-      name: 'best-pictures',
-      source: bestPictures
-    });
-
-    // submit check
-    $('#q-form').submit(function(){
-        var $input = $('#inputQ');
-        if ($input.val() == $input.attr('title')) {
-            alert('请先输入关键词');
-            $input.focus();
-            return false;
-        }
-    }); 
-}); 
-</script>
 </body>
 </html>
