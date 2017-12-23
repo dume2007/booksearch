@@ -68,7 +68,7 @@ function _body(yurl) {
       timeout: 3000,
       success: function(json) {
         json.body = json.body.replace(/[\w\s]+\.[\w\s]+\.[\w\s]+/gi, '');
-        json.body = json.body.replace(/品\s*#*.*书\s*#*.*网|笔\s*#*.*趣\s*#*.*阁|/gi, '');
+        json.body = json.body.replace(/品\s*书\s*网|笔\s*趣\s*阁|/gi, '');
         $('#body').hide().html(json.body).slideDown('slow');
         document.cookie = "_read_history=" + escape(json.title) + ',' + escape('<?php echo $q;?>') + ',' + escape('<?php echo $id;?>');
       },
