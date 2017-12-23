@@ -67,6 +67,8 @@ function _body(yurl) {
       jsonpCallback: 'jcall',
       timeout: 3000,
       success: function(json) {
+        json.body = json.body.replace(/\w+\.\w+\.\w+/gi, 'Gouyg.com');
+        json.body = json.body.replace(/品书网|笔趣阁/gi, '');
         $('#body').hide().html(json.body).slideDown('slow');
         document.cookie = "_read_history=" + escape(json.title) + ',' + escape('<?php echo $q;?>') + ',' + escape('<?php echo $id;?>');
       },
