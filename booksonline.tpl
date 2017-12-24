@@ -36,10 +36,12 @@ var _hmt = _hmt || [];
     <div class="col-md-12">
       <form class="form-inline" id="q-form">
         <div class="form-group">
-          <select name="st" style="width:105px;" class="form-control">
-            <option value="book">电子书</option>
-            <option value="online" selected="">在线阅读</option>
-          </select>
+          <label class="radio-inline">
+            <input type="radio" name="st" id="inlineRadio1" value="book"> 电子书
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="st" id="inlineRadio2" value="online" checked="checked"> 在线阅读
+          </label>
         </div>
         <div class="form-group">
           <label class="sr-only" for="inputQ">关键词</label>
