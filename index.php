@@ -176,7 +176,11 @@ $redis->auth('dc0623');
 $redis->select(2);
 
 if ($ret && $q) {
-	$redis->hIncrBy('BOOK_SEARCH_QUEUE_MAP', $q, 1);
+	$ret = $redis->hIncrBy('BOOK_SEARCH_QUEUE_MAP', $q, 1);
+	if($ret >= 5) {
+		$redis->hIncrBy('BOOK_SEARCH_QUEUE_MAP_HOT', $q, $ret);
+		$redis->hDel('BOOK_SEARCH_QUEUE_MAP', $q);
+	}
 }
 
 if ($st == 'online') {
