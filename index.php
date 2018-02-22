@@ -11,7 +11,6 @@
 include_once('./include/config.php');
 include_once('./include/Db.class.php');
 require_once '/usr/local/xunsearch/sdk/php/lib/XS.php';
-require_once './include/Ebook.class.php';
 require_once './include/function.php';
 error_reporting(E_ALL ^ E_NOTICE);
 
