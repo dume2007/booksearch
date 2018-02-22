@@ -8,7 +8,10 @@
  * 默认编码：UTF-8
  */
 // 加载 XS 入口文件
+include_once('./include/config.php');
+include_once('./include/Db.class.php');
 require_once '/usr/local/xunsearch/sdk/php/lib/XS.php';
+require_once './include/Ebook.class.php';
 require_once './include/function.php';
 error_reporting(E_ALL ^ E_NOTICE);
 
@@ -187,7 +190,13 @@ if ($st == 'online') {
 	include dirname(__FILE__) . '/booksonline.tpl';
 }
 elseif ($i == 1) {
-	$doc = array_pop($docs);
+	$model = new Db;
+	$ebook = $model->find('ebook', "md5id='{$q}'");
+	if($ebook) {
+		$doc = json_decode(json_encode($ebook));
+		$count = 1;
+	}
+
 	$title = $doc ? $doc->title : $q;
 	include dirname(__FILE__) . '/show.tpl';
 } else {
