@@ -114,11 +114,17 @@ var _hmt = _hmt || [];
               <?php
                 $downs = explode('||', $doc->download);
                 array_unshift($downs, 'http://lnpan.b0.upaiyun.com/book/'.$doc->classname.'/'.$doc->typename.'/'.$doc->title.'.rar');
-                foreach($downs as $url) {
+                foreach($downs as $k=>$url) {
                   $arr = explode('.', $url);
                   $ext = array_pop($arr);
                   $url_title = $doc->title . '.' . $ext;
-                  echo '<p><a class="ui-button ui-button-text-icon-primary" href="'.$url.'"><button>'.$url_title.'</button></a></p>';
+
+                  if($k == 0) {
+                    $icon = 'glyphicon glyphicon-thumbs-up';
+                  } else {
+                    $icon = 'glyphicon glyphicon-hand-right';
+                  }
+                  echo '<p><span class="'.$icon.'" aria-hidden="true"></span> <a class="ui-button ui-button-text-icon-primary" href="'.$url.'"><button>'.$url_title.'</button></a></p>';
                 }
               ?>
             </li>
