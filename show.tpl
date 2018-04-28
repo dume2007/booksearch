@@ -113,7 +113,16 @@ var _hmt = _hmt || [];
             <li><strong>下载地址:</strong>
               <?php
                 $downs = explode('||', $doc->download);
-                array_unshift($downs, 'http://lnpan.b0.upaiyun.com/book/'.$doc->classname.'/'.$doc->typename.'/'.$doc->title.'.rar');
+                if(!$downs) {
+                  $downs = explode(',', $doc->download);
+                  foreach($downs as &$item){
+                    $item = urldecode(basename($item));
+                    $item = "http://yun.se126.com/ebook/".$item;
+                  }
+                }
+                else {
+                  array_unshift($downs, 'http://lnpan.b0.upaiyun.com/book/'.$doc->classname.'/'.$doc->typename.'/'.$doc->title.'.rar');
+                }
                 foreach($downs as $k=>$url) {
                   $arr = explode('.', $url);
                   $ext = array_pop($arr);
