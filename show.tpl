@@ -113,7 +113,7 @@ var _hmt = _hmt || [];
             <li><strong>下载地址:</strong>
               <?php
                 $downs = explode('||', $doc->download);
-                if(!$downs) {
+                if(!$downs || stristr($doc->download, 'jjxsw')) {
                   $downs = explode(',', $doc->download);
                   foreach($downs as &$item){
                     $item = urldecode(basename($item));
