@@ -79,6 +79,12 @@ $docs = $related = $corrected = $hot = array();
 $error = $pager = '';
 $total_begin = microtime(true);
 
+// output the data
+$redis = new Redis();  
+$ret = $redis->connect("localhost", "6379");  //php客户端设置的ip及端口
+$redis->auth('dc0623');
+$redis->select(2);
+
 // perform the search
 try {
 	$xs_index = $st == 'online' ? 'booksonline' : 'books';
@@ -183,12 +189,6 @@ if ($xml === 'yes' && !empty($q)) {
 	echo "</xs:result>\n";
 	exit(0);
 }
-
-// output the data
-$redis = new Redis();  
-$ret = $redis->connect("localhost", "6379");  //php客户端设置的ip及端口
-$redis->auth('dc0623');
-$redis->select(2);
 
 if ($ret && $q) {
 	$ret = $redis->hIncrBy('BOOK_SEARCH_QUEUE_MAP', $q, 1);
