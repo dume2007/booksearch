@@ -27,7 +27,7 @@ var _hmt = _hmt || [];
 </script>
 </head>
 <!-- search.tpl Books 搜索模板 -->  
-<body style="background-color:#dee0dc;color: #383838;">
+<body style="background-color:#f9f9f9;color: #383838;">
 
 <div class="container">
   <div class="row">
