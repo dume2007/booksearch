@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title><?php if (!empty($q)) echo "信息：" . $title . " - "; ?>狗狗搜索资源 - Powered by 东城狗狗搜索</title>
-<meta http-equiv="keywords" content="东城狗狗搜索,狗狗搜索小说,狗狗搜索数据,狗狗搜索在线阅读" />
-<meta http-equiv="description" content="东城狗狗搜索,狗狗搜索小说,狗狗搜索数据,狗狗搜索在线阅读" />
+<title><?php if (!empty($q)) echo $title . " - "; ?>狗狗电子书，小说下载 - Powered by 东城狗狗搜索</title>
+<meta http-equiv="keywords" content="<?php echo $title.','.$doc->classname.','.mb_substr(htmlspecialchars($doc->description),0,120,'utf-8');?>，狗狗电子书txt免费下载" />
+<meta http-equiv="description" content="<?php echo $title;?>" />
 <link rel="stylesheet" href="http://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.min.css" />
 <style type="text/css">
 @media (min-width: 768px) {
@@ -31,7 +31,7 @@ var _hmt = _hmt || [];
         <h1 style="margin: 40px 0;padding-bottom: 20px; border-bottom: 1px solid #c7c0c0; color: #1773a0;font-weight: bold;"><span class="glyphicon glyphicon-phone" aria-hidden="true"></span>东城狗狗搜索 <small>电子书</small></h1>
     </div>
     <div class="col-md-12">
-      <form class="form-inline" id="q-form">
+      <form class="form-inline" id="q-form" action="/">
         <div class="form-group">
           <label class="radio-inline">
             <input type="radio" name="st" id="inlineRadio1" value="book" checked="checked"> 电子书
@@ -70,7 +70,7 @@ var _hmt = _hmt || [];
         <h4>您是不是要找：</h4>
         <p>
           <?php foreach ($corrected as $word): ?>
-          <span><a href="<?php echo $_SERVER['SCRIPT_NAME'] . '?q=' . urlencode($word); ?>" class="text-error"><?php echo $word; ?></a></span>
+          <span><a href="<?php echo '/book/' . urlencode($word); ?>/1" class="text-error"><?php echo $word; ?></a></span>
           <?php endforeach; ?>
         </p>
       </div>
@@ -105,9 +105,9 @@ var _hmt = _hmt || [];
           ?>
           <p><?php echo $doc->description; ?></p>
           <p class="field-info text-error"><ul>
-            <li><strong>分类:</strong> <a href="/?q=<?php echo $doc->classname;?>&f=classname&s=relevance"><?php echo $doc->classname; ?></a></li>
-            <li><strong>栏目:</strong> <a href="/?q=<?php echo $doc->typename;?>&f=typename&s=relevance"><?php echo $doc->typename; ?></a></li>
-            <li><strong>作者:</strong> <a href="/?q=<?php echo $doc->author;?>&f=author&s=relevance"><?php echo $doc->author; ?></a></li>
+            <li><strong>分类:</strong> <a href="/book/classname/<?php echo $doc->classname;?>/1"><?php echo $doc->classname; ?></a></li>
+            <li><strong>栏目:</strong> <a href="/book/typename/<?php echo $doc->typename;?>/1"><?php echo $doc->typename; ?></a></li>
+            <li><strong>作者:</strong> <a href="/book/author/<?php echo $doc->author;?>/1"><?php echo $doc->author; ?></a></li>
             <li><strong>录入时间:</strong> <?php echo date('Y-m-d', $doc->addtime); ?></li>
             <li><strong>信息:</strong> <?php echo str_replace('||',',',$doc->info); ?></li>
             <li><strong>下载地址:</strong>
@@ -121,7 +121,7 @@ var _hmt = _hmt || [];
                   }
                 }
                 else {
-                  array_unshift($downs, 'http://lnpan.b0.upaiyun.com/book/'.$doc->classname.'/'.$doc->typename.'/'.$doc->title.'.rar');
+                  array_unshift($downs, 'http://dl.gouyg.com/book/'.$doc->classname.'/'.$doc->typename.'/'.$doc->title.'.rar');
                 }
                 foreach($downs as $k=>$url) {
                   $arr = explode('.', $url);
@@ -159,9 +159,9 @@ var _hmt = _hmt || [];
             continue;
           }
         ?>
-        <span><a href="<?php echo $_SERVER['SCRIPT_NAME'] . '?q=' . urlencode($word); ?>"><?php echo $word; ?></a></span>
+        <span><a href="<?php echo '/book/' . urlencode($word); ?>/1"><?php echo $word; ?></a></span>
         <?php endforeach; ?>
-        <span><a href="<?php echo $_SERVER['SCRIPT_NAME'] . '?st=online&q=' . urlencode($q); ?>"><?php echo $q; ?>在线阅读</a></span>
+        <span><a href="<?php echo '/online/' . urlencode($q); ?>/1"><?php echo $q; ?>在线阅读</a></span>
       </p>
     </div>
   </div>

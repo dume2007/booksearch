@@ -89,6 +89,10 @@ try {
 	if (empty($q)) {
 		// just show hot query
 		$hot = $search->getHotQuery(20, 'currnum');
+		
+		// 取最近入库的数据
+		$model = new Db;
+	    $nbook = $model->query('select md5id,title from ebook order by id desc limit 30');
 	} else {
 		// fuzzy search
 		$search->setFuzzy($m === 'yes');
@@ -139,7 +143,7 @@ try {
 			$pe = min($pb + 10, ceil($count / $n) + 1);
 			$pager = '';
 			do {
-				$pager .= ($pb == $p) ? '<li class="disabled"><a>' . $p . '</a></li>' : '<li><a href="' . $bu . '&p=' . $pb . '">' . $pb . '</a></li>';
+				$pager .= ($pb == $p) ? '<li class="disabled"><a>' . $p . '</a></li>' : '<li><a href="/'.$st.'/'.urlencode($q).'/'.$pb.'">' . $pb . '</a></li>';
 			} while (++$pb < $pe);
 		}
 	}

@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title><?php if (!empty($q)) echo "搜索：" . strip_tags($q) . " - "; ?>狗狗搜索资源 - Powered by 东城狗狗搜索</title>
-<meta http-equiv="keywords" content="<?php if (!empty($q)) echo "搜索：" . strip_tags($q) . " - "; ?>狗狗搜索资源 - Powered by 东城狗狗搜索" />
-<meta http-equiv="description" content="<?php if (!empty($q)) echo "搜索：" . strip_tags($q) . " - "; ?>狗狗搜索资源 - Powered by 东城狗狗搜索" />
+<title><?php if (!empty($q)) echo "标签：" . strip_tags($q) . " - "; ?>狗狗电子书，在线小说 - Powered by 东城狗狗搜索</title>
+<meta http-equiv="keywords" content="<?php if (!empty($q)) echo "搜索：" . strip_tags($q) . " 狗狗电子书，在线小说 - "; ?>狗狗搜索资源 - Powered by 东城狗狗搜索" />
+<meta http-equiv="description" content="<?php if (!empty($q)) echo "搜索：" . strip_tags($q) . " 狗狗电子书，在线小说 - "; ?>狗狗搜索资源 - Powered by 东城狗狗搜索" />
 <link rel="stylesheet" href="http://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.min.css" />
 <style type="text/css">
 @media (min-width: 768px) {
@@ -34,7 +34,7 @@ var _hmt = _hmt || [];
         <h1 style="margin: 40px 0;padding-bottom: 20px; border-bottom: 1px solid #c7c0c0; color: #1773a0;font-weight: bold;"><span class="glyphicon glyphicon-phone" aria-hidden="true"></span>东城狗狗搜索 <small>在线阅读</small></h1>
     </div>
     <div class="col-md-12">
-      <form class="form-inline" id="q-form">
+      <form class="form-inline" id="q-form" action="">
         <div class="form-group">
           <label class="radio-inline">
             <input type="radio" name="st" id="inlineRadio1" value="book"> 电子书
@@ -142,9 +142,9 @@ var _hmt = _hmt || [];
       <h4>热门搜索:</h4>
       <p>
         <?php foreach($hot as $word => $freq): ?>
-        <span><a href="<?php echo $_SERVER['SCRIPT_NAME'] . '?st=online&q=' . urlencode($word); ?>"><?php echo $word; ?></a></span>
+        <span><a href="<?php echo '/online/' . urlencode($word); ?>/1"><?php echo $word; ?></a></span>
         <?php endforeach; ?>
-        <span><a href="<?php echo $_SERVER['SCRIPT_NAME'] . '?q=' . urlencode($q); ?>"><?php echo $q; ?>电子书下载</a></span>
+        <span><a href="<?php echo '/book/' . urlencode($q); ?>/1"><?php echo $q; ?>电子书下载</a></span>
       </p>
     </div>
   </div>
@@ -157,7 +157,7 @@ var _hmt = _hmt || [];
       <h4>相关搜索:</h4>
       <p>
         <?php foreach ($related as $word): ?>
-        <span><a href="<?php echo $_SERVER['SCRIPT_NAME'] . '?st=online&q=' . urlencode($word); ?>"><?php echo $word; ?></a></span>
+        <span><a href="<?php echo '/online/' . urlencode($word); ?>/1"><?php echo $word; ?></a></span>
         <?php endforeach; ?>  
       </p>
     </div>

@@ -1,0 +1,17 @@
+rewrite ^/(\w*)/(\w*)/(.*)/([0-9]*)$ /index.php?st=$1&q=$3&p=$4&m=yes&f=$2&s=relevance last;
+rewrite ^/(\w*)/(.*)/([0-9]*)$ /index.php?st=$1&q=$2&p=$3&m=yes&f=_all&s=relevance last;
+rewrite ^/(\w*)/(\w*).html$ /index.php?st=$1&q=$2&f=index&s=relevance&m=no&i=1 last;
+
+rewrite ^/manhua/(\w*)/index\.html$ /index.php?m=news&a=manhua&key=$1 last;
+rewrite ^/manhua/(\w*)/(\w*)_([0-9]*).html$ /index.php?m=news&a=content&key=$2&page=$3 last;
+rewrite ^/manhua/(\w*)/(\w*)\.html$ /index.php?m=news&a=content&key=$2&page=1 last;
+
+rewrite ^/htmls/(\w*)/id/([0-9]*)\.html$ /index.php?m=html&a=$1&id=$2 last;
+rewrite ^/htmls/(\w*)/id/([0-9]*)_([0-9]*)\.html$ /index.php?m=html&a=$1&id=$2&page=$3 last;
+rewrite ^/htmls/newlist\.html$ /index.php?m=html&a=newlist&page=1 last;
+rewrite ^/htmls/newlist_([0-9]*)\.html$ /index.php?m=html&a=newlist&page=$1 last;
+rewrite ^/htmls/searchlist\.html$ /index.php?m=html&a=searchlist&page=1 last;
+rewrite ^/htmls/searchlist_([0-9]*)\.html$ /index.php?m=html&a=searchlist&page=$1 last;
+
+rewrite ^/htmls/tags_([0-9]*)\.html$ /index.php?m=html&a=taglist&page=$1 last;
+rewrite ^/htmls/tags\.html$ /index.php?m=html&a=taglist&page=1 last;
