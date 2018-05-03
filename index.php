@@ -88,11 +88,20 @@ try {
 
 	if (empty($q)) {
 		// just show hot query
-		$hot = $search->getHotQuery(20, 'currnum');
+		$hot = $search->getHotQuery(40, 'currnum');
 		
 		// 取最近入库的数据
 		$model = new Db;
 	    $nbook = $model->query('select md5id,title from ebook order by id desc limit 30');
+
+	    // 热门标签
+	    $ntag = $redis->get('ebook_classname_tag'); 
+	    if(!$ntag) {
+	    	$ntag = $model->query('SELECT DISTINCT classname FROM `ebook`');
+	    	$redis->setEx('ebook_classname_tag', 2592000, json_encode($ntag));
+	    } else {
+	    	$ntag = json_decode($ntag, true);
+	    }
 	} else {
 		// fuzzy search
 		$search->setFuzzy($m === 'yes');

@@ -168,7 +168,21 @@ var _hmt = _hmt || [];
         ?>
         <span><a href="<?php echo '/book/' . urlencode($word) . '/1'; ?>"><?php echo $word; ?></a></span>
         <?php endforeach; ?>
-        <span><a href="<?php echo '/online/' . urlencode($word) . '/1'; ?>"><?php echo $q; ?>在线阅读</a></span>
+      </p>
+    </div>
+  </div>
+  <?php endif; ?>
+
+  <!-- ntag search -->
+  <?php if (count($ntag) > 0): ?>
+  <div class="row">
+    <div class="col-md-12">
+      <h4>分类标签:</h4>
+      <p>
+        <?php foreach($ntag as $item):
+        ?>
+        <span><a href="<?php echo '/book/classname/' . urlencode($item['classname']) . '/1'; ?>"><?php echo $item['classname']; ?></a></span>
+        <?php endforeach; ?>
       </p>
     </div>
   </div>
