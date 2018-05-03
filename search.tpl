@@ -33,7 +33,7 @@ var _hmt = _hmt || [];
   <div class="row">
     <div class="col-md-12">
       <a href="/">
-        <h1 style="margin: 40px 0;padding-bottom: 20px; border-bottom: 1px solid #c7c0c0; color: #1773a0;font-weight: bold;"><span class="glyphicon glyphicon-phone" aria-hidden="true"></span>东城狗狗搜索 <small>电子书</small></h1>
+        <h1 style="margin: 40px 0;padding-bottom: 20px; border-bottom: 1px solid #c7c0c0; color: #1773a0;font-weight: bold;"><span class="glyphicon glyphicon-phone" aria-hidden="true"></span>狗狗电子书</h1>
       </a>
     </div>
     <div class="col-md-12">
