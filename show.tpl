@@ -114,8 +114,11 @@ var _hmt = _hmt || [];
               <?php
                 $downs = explode('||', $doc->download);
                 if(!$downs || stristr($doc->download, 'jjxsw')) {
-                  $downs = explode(',', $doc->download);
+                  $downs = explode(',http', $doc->download);
                   foreach($downs as &$item){
+                    if(!stristr($item, 'http')) {
+                        $item = 'http' . $item;
+                    }
                     $item = urldecode(basename($item));
                     $item = "http://yun.se126.com/ebook/".$item;
                   }
