@@ -144,8 +144,13 @@ var _hmt = _hmt || [];
     <div class="col-md-12">
       <h4>最新入库:</h4>
       <div class="row">
-        <?php foreach($nbook as $item):?>
-        <div class="col-xs-4">
+        <?php foreach($nbook as $item):
+          $title = $item['title'];
+          if($item['addtime'] > strtotime(date('Y-m-d'))) {
+            $title = "<em>{$title}</em>";
+          }
+        ?>
+        <div class="col-xs-6 col-md-3">
             <a href="<?php echo '/book/' . $item['md5id'] . '.html'; ?>"><?php echo $item['title']; ?></a>
         </div>
         <?php endforeach; ?>

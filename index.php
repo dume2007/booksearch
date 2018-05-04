@@ -98,7 +98,7 @@ try {
 		
 		// 取最近入库的数据
 		$model = new Db;
-	    $nbook = $model->query('select md5id,title from ebook order by id desc limit 30');
+	    $nbook = $model->query('select md5id,title,addtime from ebook order by id desc limit 30');
 
 	    // 热门标签
 	    $ntag = $redis->get('ebook_classname_tag'); 
