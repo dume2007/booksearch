@@ -14,7 +14,7 @@
   .form-inline .form-control {width: 400px;}
 }
 h4 em{color: red;}
-.panel-body em{color: #f44336;}
+.panel-body em, .nbook em{color: #f44336;}
 </style>
 <script>
 var _hmt = _hmt || [];
@@ -143,7 +143,7 @@ var _hmt = _hmt || [];
   <div class="row">
     <div class="col-md-12">
       <h4>最新入库:</h4>
-      <div class="row">
+      <div class="row nbook">
         <?php foreach($nbook as $item):
           $title = $item['title'];
           if($item['addtime'] > strtotime(date('Y-m-d'))) {
