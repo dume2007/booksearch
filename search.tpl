@@ -151,7 +151,7 @@ var _hmt = _hmt || [];
           }
         ?>
         <div class="col-xs-6 col-sm-3">
-            <a href="<?php echo '/book/' . $item['md5id'] . '.html'; ?>"><?php echo $item['title']; ?></a>
+            <a href="<?php echo '/book/' . $item['md5id'] . '.html'; ?>"><?php echo $title; ?></a>
         </div>
         <?php endforeach; ?>
       </div>
