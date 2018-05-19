@@ -129,7 +129,7 @@ var _hmt = _hmt || [];
                         $item = 'http' . $item;
                     }
                     $item = urldecode(basename($item));
-                    $item = "http://yun.se126.com/ebook/".$item;
+                    $item = "http://yun.gouyg.com/ebook/".$item;
                   }
                 }
                 else {
