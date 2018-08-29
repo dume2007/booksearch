@@ -133,7 +133,7 @@ var _hmt = _hmt || [];
                   }
                 }
                 else {
-                  array_unshift($downs, 'http://dl.gouyg.com/book/'.$doc->classname.'/'.$doc->typename.'/'.$doc->title.'.rar');
+                  array_unshift($downs, 'http://yun.gouyg.com/book/'.$doc->classname.'/'.$doc->typename.'/'.$doc->title.'.rar');
                 }
                 foreach($downs as $k=>$url) {
                   $arr = explode('.', $url);
