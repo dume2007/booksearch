@@ -93,7 +93,7 @@ try {
 	$search = $xs->search;
 	$search->setCharset('UTF-8');
 
-	if (empty($q)) {
+	if (empty($q) || $i == 1) {
 		// just show hot query
 		$hot = $search->getHotQuery(40, 'currnum');
 		

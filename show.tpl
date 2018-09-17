@@ -166,14 +166,13 @@ var _hmt = _hmt || [];
       <h4>热门搜索:</h4>
       <p>
         <?php foreach($hot as $word => $freq): 
-          $word2 = trim(preg_replace('/\w+/', '', $word));
-          if(empty($word2) && strlen($word) > 12) {
-            continue;
-          }
+	  $word2 = trim(preg_replace('/\w+/', '', $word));
+          if(empty($word2) && strlen($word) > 12 || urlencode($word) == '%CC%D8%D6%D6' || urlencode($word) == '%C3%FE%B9%C7%C9') {
+          	continue;
+          }  
         ?>
         <span><a href="<?php echo '/book/' . urlencode($word); ?>/1"><?php echo $word; ?></a></span>
         <?php endforeach; ?>
-        <span><a href="<?php echo '/online/' . urlencode($q); ?>/1"><?php echo $q; ?>在线阅读</a></span>
       </p>
     </div>
   </div>
