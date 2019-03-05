@@ -85,7 +85,7 @@ function _body(yurl) {
 }
 
 $(function(){
-    _body('http://lnpan.b0.upaiyun.com/book/read_all/<?php echo $q;?>/<?php echo $id;?>');
+    _body('http://yun.gouyg.com/book/read_all/<?php echo $q;?>/<?php echo $id;?>');
     document.onkeydown=function(event){
         var e = event || window.event || arguments.callee.caller.arguments[0];
         console.log(e.keyCode);
