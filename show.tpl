@@ -122,7 +122,7 @@ var _hmt = _hmt || [];
             <li><strong>下载地址:</strong>
               <?php
                 $downs = explode('||', $doc->download);
-                if(!$downs || stristr($doc->download, 'jjxsw') || stristr($doc->download, 'txt99')) {
+                if(!$downs || stristr($doc->download, '99xsw') || stristr($doc->download, 'jjxsw') || stristr($doc->download, 'txt99')) {
                   $downs = explode(',http', $doc->download);
                   foreach($downs as &$item){
                     if(!stristr($item, 'http')) {
@@ -135,6 +135,7 @@ var _hmt = _hmt || [];
                 else {
                   array_unshift($downs, 'http://yun.gouyg.com/book/'.$doc->classname.'/'.$doc->typename.'/'.$doc->title.'.rar');
                 }
+                
                 foreach($downs as $k=>$url) {
                   $arr = explode('.', $url);
                   $ext = array_pop($arr);
