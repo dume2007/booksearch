@@ -122,7 +122,7 @@ var _hmt = _hmt || [];
             <li><strong>下载地址:</strong>
               <?php
                 $downs = explode('||', $doc->download);
-                if(!$downs || stristr($doc->download, '99xsw') || stristr($doc->download, 'jjxsw') || stristr($doc->download, 'txt99')) {
+                if(!$downs || stristr($doc->download, '99xsw') || stristr($doc->download, 'jjxsw') || stristr($doc->download, 'jjxs') || stristr($doc->download, 'txt99')) {
                   $downs = explode(',http', $doc->download);
                   foreach($downs as &$item){
                     if(!stristr($item, 'http')) {
