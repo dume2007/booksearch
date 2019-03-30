@@ -7,7 +7,7 @@
 <title><?php if (!empty($q)) echo $title . " - "; ?>狗狗电子书，小说下载 - Powered by 东城狗狗搜索</title>
 <meta http-equiv="keywords" content="<?php echo $title.','.$doc->classname.','.mb_substr(htmlspecialchars($doc->description),0,120,'utf-8');?>，狗狗电子书txt免费下载" />
 <meta http-equiv="description" content="<?php echo $title;?>" />
-<link rel="stylesheet" href="http://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.min.css" />
+<link rel="stylesheet" href="http://cdn.staticfile.org/twitter-bootstrap/3.3.4/css/bootstrap.min.css" />
 <style type="text/css">
 @media (min-width: 768px) {
   .form-inline .form-control {width: 400px;}
@@ -17,7 +17,7 @@
 var _hmt = _hmt || [];
 (function() {
   var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?d8fb9a8b96acc1cbe4f380fdf3fe0354";
+  hm.src = "https://hm.baidu.com/hm.js?dea9de4391f100a569a0db9df14f545c";
   var s = document.getElementsByTagName("script")[0]; 
   s.parentNode.insertBefore(hm, s);
 })();
@@ -128,7 +128,7 @@ var _hmt = _hmt || [];
                     if(!stristr($item, 'http')) {
                         $item = 'http' . $item;
                     }
-                    $item = urldecode(basename($item));
+                    $item = urldecode(basename2($item));
                     $item = "http://yun.gouyg.com/ebook/".$item;
                   }
                 }
@@ -186,7 +186,7 @@ var _hmt = _hmt || [];
   </footer>
 </div>
 
-<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src="http://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://cdn.staticfile.org/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/twitter-bootstrap/3.3.4/js/bootstrap.min.js"></script>
 </body>
 </html>

@@ -1,4 +1,8 @@
 <?php
+function basename2($str) {
+	    return preg_replace('/^.+[\\\\\\/]/', '', $str);
+}
+
 function getFrom($url)
 {
 	if(stristr($url, 'woquge')) {

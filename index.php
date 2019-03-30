@@ -12,7 +12,7 @@
 //error_reporting(E_ALL ^ E_NOTICE);
 include_once('./include/config.php');
 include_once('./include/Db.class.php');
-require_once '/usr/local/xunsearch/sdk/php/lib/XS.php';
+require_once '/var/www/html/xunsearch/sdk/php/lib/XS.php';
 require_once './include/function.php';
 
 //
@@ -82,7 +82,7 @@ $total_begin = microtime(true);
 
 // output the data
 $redis = new Redis();  
-$ret = $redis->connect("localhost", "6379");  //php客户端设置的ip及端口
+$ret = $redis->connect("redis", "6379");  //php客户端设置的ip及端口
 $redis->auth('dc0623');
 $redis->select(2);
 
@@ -165,6 +165,7 @@ try {
 	}
 } catch (XSException $e) {
 	$error = strval($e);
+        var_dump($error);
 }
 
 // calculate total time cost

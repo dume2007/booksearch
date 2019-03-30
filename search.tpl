@@ -7,8 +7,8 @@
 <title><?php if (!empty($q)) echo "标签：" . strip_tags($q) . " - "; ?>狗狗电子书，小说下载 - Powered by 东城狗狗搜索</title>
 <meta http-equiv="keywords" content="东城狗狗搜索,狗狗电子书,小说下载,狗狗搜索小说,狗狗搜索数据,狗狗搜索在线阅读" />
 <meta http-equiv="description" content="东城狗狗搜索,狗狗电子书,txt小说下载,狗狗搜索小说,狗狗搜索数据,狗狗搜索在线阅读" />
-<link rel="stylesheet" href="http://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.min.css" />
-<link rel="stylesheet" href="http://apps.bdimg.com/libs/jqueryui/1.8.16/themes/redmond/jquery-ui.css" type="text/css" media="all" />
+<link rel="stylesheet" href="http://cdn.staticfile.org/twitter-bootstrap/3.3.4/css/bootstrap.min.css" />
+<link rel="stylesheet" href="http://cdn.staticfile.org/jqueryui/1.8.16/themes/redmond/jquery-ui.css" type="text/css" media="all" />
 <style type="text/css">
 @media (min-width: 768px) {
   .form-inline .form-control {width: 400px;}
@@ -20,7 +20,7 @@ h4 em{color: red;}
 var _hmt = _hmt || [];
 (function() {
   var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?d8fb9a8b96acc1cbe4f380fdf3fe0354";
+  hm.src = "https://hm.baidu.com/hm.js?dea9de4391f100a569a0db9df14f545c";
   var s = document.getElementsByTagName("script")[0]; 
   s.parentNode.insertBefore(hm, s);
 })();
@@ -221,7 +221,7 @@ var _hmt = _hmt || [];
   </footer>
 </div>
 
-<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src="http://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://cdn.staticfile.org/jquery/2.1.4/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/twitter-bootstrap/3.3.4/js/bootstrap.min.js"></script>
 </body>
 </html>

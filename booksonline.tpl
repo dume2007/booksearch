@@ -19,7 +19,7 @@ h4 em{color: red;}
 var _hmt = _hmt || [];
 (function() {
   var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?d8fb9a8b96acc1cbe4f380fdf3fe0354";
+  hm.src = "https://hm.baidu.com/hm.js?dea9de4391f100a569a0db9df14f545c";
   var s = document.getElementsByTagName("script")[0]; 
   s.parentNode.insertBefore(hm, s);
 })();
