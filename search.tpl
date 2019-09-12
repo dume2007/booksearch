@@ -118,7 +118,7 @@ var _hmt = _hmt || [];
     <div class="col-md-12">      
       <?php foreach ($docs as $k=>$doc):
         $local_count = (int) $redis->get('chapters:'.$doc->md5id);
-        if ($k == 3) {
+        if ($k == 2) {
           echo '<div class="row"><script type="text/javascript">ad_gg();</script><br/></div>';
         }
       ?>
