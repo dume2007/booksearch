@@ -25,13 +25,21 @@ var _hmt = _hmt || [];
   s.parentNode.insertBefore(hm, s);
 })();
 </script>
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({
-          google_ad_client: "ca-pub-4158540502440532",
-          enable_page_level_ads: true
-     });
-</script>
+  <script type="text/javascript">
+    function ad_gg() {
+      document.writeln("<script async src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'><\/script>");
+      document.writeln("<!-- 自适应广告 -->");
+      document.writeln("<ins class=\'adsbygoogle\'");
+      document.writeln("     style=\'display:block\'");
+      document.writeln("     data-ad-client=\'ca-pub-4158540502440532\'");
+      document.writeln("     data-ad-slot=\'4112439016\'");
+      document.writeln("     data-ad-format=\'auto\'");
+      document.writeln("     data-full-width-responsive=\'true\'></ins>");
+      document.writeln("<script>");
+      document.writeln("     (adsbygoogle = window.adsbygoogle || []).push({});");
+      document.writeln("<\/script>");
+    }
+  </script>
 </head>
 <!-- search.tpl Books 搜索模板 -->  
 <body style="background-color:#f9f9f9;color: #383838;">
@@ -42,6 +50,9 @@ var _hmt = _hmt || [];
       <a href="/">
         <h1 style="margin: 40px 0;padding-bottom: 20px; border-bottom: 1px solid #c7c0c0; color: #1773a0;font-weight: bold;"><span class="glyphicon glyphicon-phone" aria-hidden="true"></span>狗狗电子书</h1>
       </a>
+    </div>
+    <div class="col-md-12">
+      <script type="text/javascript">ad_gg();</script><br/>
     </div>
     <div class="col-md-12">
       <form class="form-inline" id="q-form" action="/">
@@ -105,8 +116,11 @@ var _hmt = _hmt || [];
     
     <!-- result doc list -->
     <div class="col-md-12">      
-      <?php foreach ($docs as $doc):
+      <?php foreach ($docs as $k=>$doc):
         $local_count = (int) $redis->get('chapters:'.$doc->md5id);
+        if ($k == 3) {
+          echo '<div class="row"><script type="text/javascript">ad_gg();</script><br/></div>';
+        }
       ?>
       <div class="panel panel-default">
         <div class="panel-heading">
@@ -144,6 +158,10 @@ var _hmt = _hmt || [];
   </div>
   <?php endif; ?>
   <!-- end search result -->
+
+  <div class="row">
+      <script type="text/javascript">ad_gg();</script><br/>
+  </div>
   
   <!-- nbook search -->
   <?php if (count($nbook) > 0): ?>
