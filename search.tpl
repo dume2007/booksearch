@@ -158,10 +158,6 @@ var _hmt = _hmt || [];
   </div>
   <?php endif; ?>
   <!-- end search result -->
-
-  <div class="row">
-      <script type="text/javascript">ad_gg();</script><br/>
-  </div>
   
   <!-- nbook search -->
   <?php if (count($nbook) > 0): ?>
@@ -202,6 +198,10 @@ var _hmt = _hmt || [];
     </div>
   </div>
   <?php endif; ?>
+
+  <div class="row">
+    <script type="text/javascript">ad_gg();</script><br/>
+  </div>
 
   <!-- ntag search -->
   <?php if (count($ntag) > 0): ?>
