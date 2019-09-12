@@ -175,7 +175,7 @@ document.writeln("<\/script>");
                                 $icon = 'glyphicon glyphicon-hand-right';
                                 }
                                 echo '
-                    <p><a class="ui-button ui-button-text-icon-primary" href="'.$url.'">
+                    <p><a class="ui-button ui-button-text-icon-primary" target="_blank" href="'.$url.'">
                             <button class="btn btn-default"><span class="'.$icon.'" aria-hidden="true"></span>
                                 '.$url_title.'
                             </button>
