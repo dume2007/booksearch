@@ -23,7 +23,7 @@
             s.parentNode.insertBefore(hm, s);
         })();
     </script>
-    <script>
+    <script type="text/javascript">
         function ad_gg() {
             document.writeln("<script async src=\'//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js\'></script>");
             document.writeln("<!-- 自适应广告 -->");
