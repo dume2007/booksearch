@@ -144,8 +144,8 @@ document.writeln("<\/script>");
                             </li>
                             <li><strong>录入时间:</strong> <?php echo date('Y-m-d', $doc->addtime); ?></li>
                             <li><strong>信息:</strong> <?php echo str_replace('||',',',$doc->info); ?></li>
-                            <script type="text/javascript">ad_gg();</script>
                             <li><strong>下载地址:</strong>
+                    <p><script type="text/javascript">ad_gg();</script></p>
                                 <?php
                 		$downs = explode('||', $doc->download);
                                 if(!$downs || stristr($doc->download, '99xsw') || stristr($doc->download, 'jjxsw') ||
