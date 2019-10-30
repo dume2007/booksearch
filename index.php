@@ -92,6 +92,8 @@ try {
 	$xs = new XS($xs_index);
 	$search = $xs->search;
 	$search->setCharset('UTF-8');
+    // get related query
+    $related = $search->getRelatedQuery($q, 10);
 
 	if (empty($q) || $i == 1) {
 		// just show hot query
@@ -149,8 +151,6 @@ try {
 			if ($count < 1 || $count < ceil(0.001 * $total)) {
 				$corrected = $search->getCorrectedQuery();
 			}
-			// get related query
-			$related = $search->getRelatedQuery();
 		}
 
 		// gen pager
