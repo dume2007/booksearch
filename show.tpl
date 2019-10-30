@@ -194,6 +194,21 @@ document.writeln("<\/script>");
     <?php endif; ?>
     <!-- end search result -->
 
+    <!-- ntag search -->
+    <?php if (count($ntag) > 0): ?>
+    <div class="row">
+        <div class="col-md-12">
+            <h4>分类标签:</h4>
+            <p>
+                <?php foreach($ntag as $item):
+        ?>
+                <span><a href="<?php echo '/book/classname/' . urlencode($item['classname']) . '/1'; ?>"><?php echo $item['classname']; ?></a></span>
+                <?php endforeach; ?>
+            </p>
+        </div>
+    </div>
+    <?php endif; ?>
+
     <!-- related query -->
     <?php if (count($related) > 0): ?>
     <div class="row">
@@ -211,21 +226,6 @@ document.writeln("<\/script>");
     <div class="row">
         <script type="text/javascript">ad_gg();</script><br/>
     </div>
-
-    <!-- ntag search -->
-    <?php if (count($ntag) > 0): ?>
-    <div class="row">
-        <div class="col-md-12">
-            <h4>分类标签:</h4>
-            <p>
-                <?php foreach($ntag as $item):
-        ?>
-                <span><a href="<?php echo '/book/classname/' . urlencode($item['classname']) . '/1'; ?>"><?php echo $item['classname']; ?></a></span>
-                <?php endforeach; ?>
-            </p>
-        </div>
-    </div>
-    <?php endif; ?>
 
     <!-- hot search -->
     <?php if (count($hot) > 0): ?>

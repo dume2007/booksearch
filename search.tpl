@@ -231,7 +231,7 @@ var _hmt = _hmt || [];
     </div>
   </div>
   <?php endif; ?>
-  
+
   <!-- footer -->
   <footer>
       <p>(C)opyright 2011 - Books search - 页面处理总时间：<?php printf('%.4f', $total_cost); ?>秒<br>
