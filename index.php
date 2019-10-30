@@ -94,7 +94,7 @@ try {
 	$search->setCharset('UTF-8');
 	if (empty($q) || $i == 1) {
 		// just show hot query
-		$hot = $search->getHotQuery(40, 'currnum');
+		$hot = $search->getHotQuery(80, 'currnum');
 		
 		// 取最近入库的数据
 		$model = new Db;
