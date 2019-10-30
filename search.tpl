@@ -223,7 +223,7 @@ var _hmt = _hmt || [];
         $word2 = trim(preg_replace('/[\w\s%]+/', '', $word));
         //var_dump([$word, $word2]);
         if(empty($word2) || strlen($word) > 16 || in_array(urlencode($word), ['%CC%D8%D6%D6','%C3%FE%B9%C7%C9','%C8%A5+%C4%BC','%D1%AA+%D6%AE%CE%D2%CA%C7+%DB%CD'])) {
-        continue;
+          continue;
         }
         ?>
         <span><a href="<?php echo '/book/' . urlencode($word) . '/1'; ?>"><?php echo $word; ?></a></span>

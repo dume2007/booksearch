@@ -90,12 +90,12 @@ $redis->select(2);
 try {
 	$xs_index = $st == 'online' ? 'booksonline' : 'books';
 	$xs = new XS($xs_index);
+    /**
+     * @var $search
+     */
 	$search = $xs->search;
 	$search->setCharset('UTF-8');
 	if (empty($q) || $i == 1) {
-		// just show hot query
-		$hot = $search->getHotQuery(80, 'currnum');
-		
 		// 取最近入库的数据
 		$model = new Db;
 	    $nbook = $model->query('select md5id,title,addtime from ebook order by id desc limit 30');
@@ -111,6 +111,18 @@ try {
 
         // get related query
         $related = $search->getRelatedQuery('小说', 10);
+
+        // just show hot query
+        $hot = $search->getHotQuery(80, 'currnum');
+        $xs->setScheme(XSFieldScheme::logger());
+        foreach($hot as $word => $freq) {
+            $word2 = trim(preg_replace('/[\w\s%]+/', '', $word));
+            if (empty($word2) || strlen($word) > 16 || in_array(urlencode($word), ['%CC%D8%D6%D6', '%C3%FE%B9%C7%C9', '%C8%A5+%C4%BC', '%D1%AA+%D6%AE%CE%D2%CA%C7+%DB%CD'])) {
+                $xs->index->setDb(XSSearch::LOG_DB)->del($word);
+                unset($hot[$word]);
+                continue;
+            }
+        }
 	} else {
 		// fuzzy search
 		$search->setFuzzy($m === 'yes');
