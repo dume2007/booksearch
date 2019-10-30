@@ -115,6 +115,7 @@ try {
         // just show hot query
         $hot = $search->getHotQuery(80, 'currnum');
         $xs->setScheme(XSFieldScheme::logger());
+        $search->setDb(XSSearch::LOG_DB)->setQuery('dummy');
         foreach($hot as $word => $freq) {
             $word2 = trim(preg_replace('/[\w\s%]+/', '', $word));
             if (empty($word2) || strlen($word) > 16 || in_array(urlencode($word), ['%CC%D8%D6%D6', '%C3%FE%B9%C7%C9', '%C8%A5+%C4%BC', '%D1%AA+%D6%AE%CE%D2%CA%C7+%DB%CD'])) {
