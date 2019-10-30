@@ -180,29 +180,6 @@ var _hmt = _hmt || [];
   </div>
   <?php endif; ?>
 
-  <!-- hot search -->
-  <?php if (count($hot) > 0): ?>
-  <div class="row">
-    <div class="col-md-12">
-      <h4>热门搜索:</h4>
-      <p>
-        <?php foreach($hot as $word => $freq): 
-          $word2 = trim(preg_replace('/\w+/', '', $word));
-          if(empty($word2) && strlen($word) > 12 || urlencode($word) == '%CC%D8%D6%D6' || urlencode($word) == '%C3%FE%B9%C7%C9') {
-            continue;
-          }
-        ?>
-        <span><a href="<?php echo '/book/' . urlencode($word) . '/1'; ?>"><?php echo $word; ?></a></span>
-        <?php endforeach; ?>
-      </p>
-    </div>
-  </div>
-  <?php endif; ?>
-
-  <div class="row">
-    <script type="text/javascript">ad_gg();</script><br/>
-  </div>
-
   <!-- ntag search -->
   <?php if (count($ntag) > 0): ?>
   <div class="row">
@@ -226,12 +203,35 @@ var _hmt = _hmt || [];
       <p>
         <?php foreach ($related as $word): ?>
         <span><a href="<?php echo '/book/' . urlencode($word) . '/1'; ?>"><?php echo $word; ?></a></span>
-        <?php endforeach; ?>  
+        <?php endforeach; ?>
       </p>
     </div>
   </div>
   <?php endif; ?>
 
+  <div class="row">
+    <script type="text/javascript">ad_gg();</script><br/>
+  </div>
+
+  <!-- hot search -->
+  <?php if (count($hot) > 0): ?>
+  <div class="row">
+    <div class="col-md-12">
+      <h4>热门搜索:</h4>
+      <p>
+        <?php foreach($hot as $word => $freq):
+        $word2 = trim(preg_replace('/\w+/', '', $word));
+        if(empty($word2) && strlen($word) > 12 || urlencode($word) == '%CC%D8%D6%D6' || urlencode($word) == '%C3%FE%B9%C7%C9') {
+        continue;
+        }
+        ?>
+        <span><a href="<?php echo '/book/' . urlencode($word) . '/1'; ?>"><?php echo $word; ?></a></span>
+        <?php endforeach; ?>
+      </p>
+    </div>
+  </div>
+  <?php endif; ?>
+  
   <!-- footer -->
   <footer>
       <p>(C)opyright 2011 - Books search - 页面处理总时间：<?php printf('%.4f', $total_cost); ?>秒<br>
