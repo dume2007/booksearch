@@ -220,9 +220,9 @@ var _hmt = _hmt || [];
       <h4>热门搜索:</h4>
       <p>
         <?php foreach($hot as $word => $freq):
-        $word2 = trim(preg_replace('/[\w\s]+/', '', $word));
+        $word2 = trim(preg_replace('/[\w\s%]+/', '', $word));
         var_dump([$word, $word2]);
-        if(empty($word2) && strlen($word) > 16 || urlencode($word) == '%CC%D8%D6%D6' || urlencode($word) == '%C3%FE%B9%C7%C9') {
+        if(empty($word2) || strlen($word) > 16 || urlencode($word) == '%CC%D8%D6%D6' || urlencode($word) == '%C3%FE%B9%C7%C9') {
         continue;
         }
         ?>
