@@ -92,9 +92,6 @@ try {
 	$xs = new XS($xs_index);
 	$search = $xs->search;
 	$search->setCharset('UTF-8');
-    // get related query
-    $related = $search->getRelatedQuery($q, 10);
-
 	if (empty($q) || $i == 1) {
 		// just show hot query
 		$hot = $search->getHotQuery(40, 'currnum');
@@ -111,6 +108,9 @@ try {
 	    } else {
 	    	$ntag = json_decode($ntag, true);
 	    }
+
+        // get related query
+        $related = $search->getRelatedQuery('小说', 10);
 	} else {
 		// fuzzy search
 		$search->setFuzzy($m === 'yes');
@@ -151,6 +151,9 @@ try {
 			if ($count < 1 || $count < ceil(0.001 * $total)) {
 				$corrected = $search->getCorrectedQuery();
 			}
+
+            // get related query
+            $related = $search->getRelatedQuery($q, 10);
 		}
 
 		// gen pager
@@ -212,6 +215,7 @@ elseif ($i == 1) {
 	}
 
 	$title = $doc ? $doc->title : $q;
+    $related = $search->getRelatedQuery($title, 10);
 	include dirname(__FILE__) . '/show.tpl';
 } else {
 	include dirname(__FILE__) . '/search.tpl';
