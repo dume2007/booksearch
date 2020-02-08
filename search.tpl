@@ -7,8 +7,8 @@
 <title><?php if (!empty($q)) echo "标签：" . strip_tags($q) . " - "; ?>狗狗电子书，小说下载 - Powered by 东城狗狗搜索</title>
 <meta http-equiv="keywords" content="东城狗狗搜索,狗狗电子书,小说下载,狗狗搜索小说,狗狗搜索数据,狗狗搜索在线阅读" />
 <meta http-equiv="description" content="东城狗狗搜索,狗狗电子书,txt小说下载,狗狗搜索小说,狗狗搜索数据,狗狗搜索在线阅读" />
-<link rel="stylesheet" href="http://cdn.staticfile.org/twitter-bootstrap/3.3.4/css/bootstrap.min.css" />
-<link rel="stylesheet" href="http://cdn.staticfile.org/jqueryui/1.8.16/themes/redmond/jquery-ui.css" type="text/css" media="all" />
+<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.4/css/bootstrap.min.css" />
+<link rel="stylesheet" href="https://cdn.staticfile.org/jqueryui/1.8.16/themes/redmond/jquery-ui.css" type="text/css" media="all" />
 <style type="text/css">
 @media (min-width: 768px) {
   .form-inline .form-control {width: 400px;}
@@ -236,11 +236,11 @@ var _hmt = _hmt || [];
   <!-- footer -->
   <footer>
       <p>(C)opyright 2011 - Books search - 页面处理总时间：<?php printf('%.4f', $total_cost); ?>秒<br>
-        Powered by <a href="http://www.gouyg.com/" target="_blank" title="东城狗狗搜索">东城狗狗搜索/WEB2.0</a></p>
+        Powered by <a href="https://www.gouyg.com/" target="_blank" title="东城狗狗搜索">东城狗狗搜索/WEB2.0</a></p>
   </footer>
 </div>
 
-<script type="text/javascript" src="http://cdn.staticfile.org/jquery/2.1.4/jquery.min.js"></script>
-<script src="http://cdn.staticfile.org/twitter-bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.4/js/bootstrap.min.js"></script>
 </body>
 </html>
