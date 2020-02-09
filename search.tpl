@@ -181,6 +181,8 @@ var _hmt = _hmt || [];
       </div>
     </div>
   </div>
+
+  <div id="gif-content"></div><script async src="https://www.gifrr.com/public/dancejslist/0"></script>
   <?php endif; ?>
 
   <!-- ntag search -->

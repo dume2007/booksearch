@@ -189,6 +189,7 @@ document.writeln("<\/script>");
             </div>
             <?php endif; ?>
         </div>
+        <div id="gif-content"></div><script async src="https://www.gifrr.com/public/dancejslist/0"></script>
 
     </div>
     <?php endif; ?>
