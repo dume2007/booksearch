@@ -122,7 +122,7 @@ var _hmt = _hmt || [];
           echo '<div class="row"><script type="text/javascript">ad_gg();</script><br/></div>';
         }
         if ($k == 1) {
-          echo '<script async src="https://www.gifrr.com/public/dancejslist/0"></script>';
+          echo '<div id="gif-content"></div><script async src="https://www.gifrr.com/public/dancejslist/0"></script>';
         }
       ?>
       <div class="panel panel-default">
