@@ -25,7 +25,13 @@
     </script>
     <script type="text/javascript">
         function ad_gg() {
-
+        }
+        function ad_QQ() {
+            document.writeln("欢迎大家加入！一起交流,共同分享好小说！<br\/>");
+            document.writeln("<p><a target=\"_blank\" href=\"https://qm.qq.com/cgi-bin/qm/qr?k=l2aPjUZKTwvwqNYOgj7IOAH93NaLeLg_&jump_from=webapi\"><img align='absmiddle' border=\"0\" src=\"//pub.idqqimg.com/wpa/images/group.png\" alt=\"小说资源群\" title=\"小说资源群\">小说资源群</a></p>");
+            document.writeln("<p><a target=\"_blank\" href=\"https://jq.qq.com/?_wv=1027&k=t3s1yKvW\"><img align='absmiddle' border=\"0\" src=\"//pub.idqqimg.com/wpa/images/group.png\" alt=\"耽美好小说\" title=\"耽美好小说\">耽美好小说</a></p>");
+            document.writeln("<p><a target=\"_blank\" href=\"https://share.weiyun.com/pSuQOTup-g\"><img align='absmiddle' border='0' src='/Public/img/wp.png'>小说分享网盘</a></p>");
+            document.writeln("<br\/>");
         }
     </script>
 </head>
@@ -135,7 +141,7 @@
                             <li><strong>录入时间:</strong> <?php echo date('Y-m-d', $doc->addtime); ?></li>
                             <li><strong>信息:</strong> <?php echo str_replace('||',',',$doc->info); ?></li>
                             <li><strong>下载地址:</strong>
-                    <p><script type="text/javascript">ad_gg();</script></p>
+                    <p><script type="text/javascript">ad_QQ();</script></p>
                                 <?php
                 		$downs = explode('||', $doc->download);
                                 if(!$downs || stristr($doc->download, '99xsw') || stristr($doc->download, 'jjxsw') ||
